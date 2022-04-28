@@ -13,10 +13,10 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
-import '../../modules/loading/pages/loading_page.dart' as _i1;
+import '../../modules/loading/pages/loading_page.dart' as _i3;
 import '../../modules/onboarding/pages/onboarding_page.dart' as _i2;
 import '../../modules/sign/login/pages/login_page.dart' as _i4;
-import '../../modules/sign/router/sign_wrapper_router.dart' as _i3;
+import '../../modules/sign/router/sign_wrapper_router.dart' as _i1;
 import '../../modules/sign/signup/pages/signup_page.dart' as _i5;
 
 class XRouter extends _i6.RootStackRouter {
@@ -25,17 +25,17 @@ class XRouter extends _i6.RootStackRouter {
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
-    LoadingRoute.name: (routeData) {
+    SignRouter.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.LoadingPage());
+          routeData: routeData, child: const _i1.SignWrapperPage());
     },
     OnboardingRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.OnboardingPage());
     },
-    SignRouter.name: (routeData) {
+    LoadingRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.SignWrapperPage());
+          routeData: routeData, child: const _i3.LoadingPage());
     },
     LoginRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
@@ -50,14 +50,30 @@ class XRouter extends _i6.RootStackRouter {
   @override
   List<_i6.RouteConfig> get routes => [
         _i6.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/onboard', fullMatch: true),
-        _i6.RouteConfig(LoadingRoute.name, path: ''),
-        _i6.RouteConfig(OnboardingRoute.name, path: '/onboard'),
+            path: '/', redirectTo: '/sign', fullMatch: true),
         _i6.RouteConfig(SignRouter.name, path: '/sign', children: [
           _i6.RouteConfig('#redirect',
               path: '',
               parent: SignRouter.name,
-              redirectTo: 'register',
+              redirectTo: 'login',
+              fullMatch: true),
+          _i6.RouteConfig(LoginRoute.name,
+              path: 'login', parent: SignRouter.name),
+          _i6.RouteConfig(SignUpRoute.name,
+              path: 'register', parent: SignRouter.name),
+          _i6.RouteConfig('*#redirect',
+              path: '*',
+              parent: SignRouter.name,
+              redirectTo: '',
+              fullMatch: true)
+        ]),
+        _i6.RouteConfig(OnboardingRoute.name, path: '/onboard'),
+        _i6.RouteConfig(LoadingRoute.name, path: ''),
+        _i6.RouteConfig(SignRouter.name, path: '/sign', children: [
+          _i6.RouteConfig('#redirect',
+              path: '',
+              parent: SignRouter.name,
+              redirectTo: 'login',
               fullMatch: true),
           _i6.RouteConfig(LoginRoute.name,
               path: 'login', parent: SignRouter.name),
@@ -75,11 +91,12 @@ class XRouter extends _i6.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.LoadingPage]
-class LoadingRoute extends _i6.PageRouteInfo<void> {
-  const LoadingRoute() : super(LoadingRoute.name, path: '');
+/// [_i1.SignWrapperPage]
+class SignRouter extends _i6.PageRouteInfo<void> {
+  const SignRouter({List<_i6.PageRouteInfo>? children})
+      : super(SignRouter.name, path: '/sign', initialChildren: children);
 
-  static const String name = 'LoadingRoute';
+  static const String name = 'SignRouter';
 }
 
 /// generated route for
@@ -91,12 +108,11 @@ class OnboardingRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.SignWrapperPage]
-class SignRouter extends _i6.PageRouteInfo<void> {
-  const SignRouter({List<_i6.PageRouteInfo>? children})
-      : super(SignRouter.name, path: '/sign', initialChildren: children);
+/// [_i3.LoadingPage]
+class LoadingRoute extends _i6.PageRouteInfo<void> {
+  const LoadingRoute() : super(LoadingRoute.name, path: '');
 
-  static const String name = 'SignRouter';
+  static const String name = 'LoadingRoute';
 }
 
 /// generated route for

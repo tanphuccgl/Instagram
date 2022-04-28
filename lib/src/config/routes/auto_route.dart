@@ -7,17 +7,17 @@ import 'package:instagram/src/modules/sign/router/sign_router.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-     AutoRoute(
+    SignCoordinator.autoRoute,
+    AutoRoute(
       path: XRoutes.onboard,
       page: OnboardingPage,
-      initial: true,
     ),
     AutoRoute(
       path: XRoutes.loading,
       page: LoadingPage,
 //      initial: true,
     ),
-    
+
     SignCoordinator.autoRoute,
 
     // redirect all other paths

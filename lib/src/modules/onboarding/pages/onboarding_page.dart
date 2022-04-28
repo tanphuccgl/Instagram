@@ -1,9 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_images.dart';
+import 'package:instagram/src/widgets/appbar/appbar_sign.dart';
+import 'package:instagram/src/widgets/bottom_bar/bottom_%20bar_sign.dart';
 import 'package:instagram/src/widgets/custom_button/button_primary.dart';
+import 'package:instagram/src/widgets/widget_custom/divider_custom.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -13,8 +15,12 @@ class OnboardingPage extends StatelessWidget {
     const _sizedBox = SizedBox(height: 10);
     return Scaffold(
       backgroundColor: MyColors.colorBackground,
-      bottomNavigationBar: _bottomNavigationBar(),
-      appBar: _appBar(),
+      bottomNavigationBar: BottomBarSign(
+        textLeft: 'Already have an account? ',
+        textRight: 'Log in.',
+        voidCallback: () {},
+      ),
+      appBar: const AppBarSign(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: SizedBox(
@@ -51,42 +57,7 @@ class OnboardingPage extends StatelessWidget {
                             .titleSmall!
                             .copyWith(color: MyColors.colorGray, fontSize: 15)),
                     _sizedBox,
-                    RichText(
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        children: [
-                          WidgetSpan(
-                            alignment: PlaceholderAlignment.middle,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Container(
-                                color: MyColors.colorBlack.withOpacity(0.2),
-                                width: 130,
-                                height: 1,
-                              ),
-                            ),
-                          ),
-                          TextSpan(
-                              text: "OR",
-                              style: Style.textTheme().titleSmall!.copyWith(
-                                  color: MyColors.colorGray,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold)),
-                          WidgetSpan(
-                            alignment: PlaceholderAlignment.middle,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Container(
-                                color: MyColors.colorBlack.withOpacity(0.2),
-                                width: 130,
-                                height: 1,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    const DividerCustom(),
                     TextButton(
                         onPressed: () {},
                         child: Text(
@@ -104,64 +75,5 @@ class OnboardingPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  AppBar _appBar() {
-    return AppBar(
-        automaticallyImplyLeading: false,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        flexibleSpace: SafeArea(
-            child: RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            children: [
-              TextSpan(
-                  text: "English (United States)",
-                  style: Style.textTheme()
-                      .titleSmall!
-                      .copyWith(color: MyColors.colorGray)),
-              const WidgetSpan(
-                  alignment: PlaceholderAlignment.middle,
-                  child: Icon(
-                    Icons.arrow_drop_down_sharp,
-                    color: MyColors.colorGray,
-                  )),
-            ],
-          ),
-        )));
-  }
-
-  Widget _bottomNavigationBar() {
-    return ListTile(
-        title: RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(children: [
-        WidgetSpan(
-          alignment: PlaceholderAlignment.middle,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Container(
-              color: MyColors.colorBlack.withOpacity(0.1),
-              width: double.infinity,
-              height: 1,
-            ),
-          ),
-        ),
-        TextSpan(
-          text: 'Already have an account? ',
-          style:
-              Style.textTheme().titleSmall!.copyWith(color: MyColors.colorGray),
-        ),
-        TextSpan(
-          text: 'Log in.',
-          style: Style.textTheme().titleSmall!.copyWith(
-              color: MyColors.colorBlue,
-              fontSize: 12,
-              fontWeight: FontWeight.w600),
-          recognizer: TapGestureRecognizer()..onTap = () {},
-        )
-      ]),
-    ));
   }
 }
