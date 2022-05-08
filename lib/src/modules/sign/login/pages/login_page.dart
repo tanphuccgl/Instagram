@@ -1,10 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_images.dart';
 import 'package:instagram/src/widgets/appbar/appbar_sign.dart';
-import 'package:instagram/src/widgets/bottom_bar/bottom_%20bar_sign.dart';
+import 'package:instagram/src/widgets/bottom_bar/bottom_bar_sign.dart';
 import 'package:instagram/src/widgets/custom_button/button_primary.dart';
+import 'package:instagram/src/widgets/text_field/base_text_field.dart';
 import 'package:instagram/src/widgets/widget_custom/divider_custom.dart';
 
 class LoginPage extends StatelessWidget {
@@ -20,74 +22,98 @@ class LoginPage extends StatelessWidget {
           textRight: 'Sign up.',
           voidCallback: () {}),
       appBar: const AppBarSign(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-        child: SizedBox(
-          width: double.infinity,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
-                flex: 3,
-                child: Image.asset(
-                  MyImages.logoFlutter,
-                  alignment: Alignment.center,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 50),
+                child: SizedBox(
                   height: 120.0,
-                  width: 120.0,
-                  fit: BoxFit.contain,
+                  child: Image.asset(
+                    MyImages.logoFlutter,
+                    alignment: Alignment.center,
+                    height: 120.0,
+                    width: 120.0,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-              Expanded(
-                flex: 7,
-                child: Column(
-                  children: [
-                    XButton(
-                      label: 'Continue as Levi',
-                      prefixIcon: const Icon(Icons.facebook),
-                      height: 44,
-                      onPressed: () {},
-                    ),
-                    _sizedBox,
-                    Text(
-                        'Trần Đức Tính, Lê Phước Gia Thịnh and 145 other friends are using Instagram.',
-                        textAlign: TextAlign.center,
-                        style: Style.textTheme()
-                            .titleSmall!
-                            .copyWith(color: MyColors.colorGray, fontSize: 15)),
-                    _sizedBox,
-                    const DividerCustom(),
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        children: [
-                          const WidgetSpan(
-                              alignment: PlaceholderAlignment.middle,
-                              child: Icon(
-                                Icons.facebook,
-                                color: MyColors.colorBlue,
-                              )),
-                          TextSpan(
-                            text: 'Login in with Facebook',
+              Column(
+                children: [
+                  BaseTextField(
+                    onChanged: (value) {},
+                    value: '',
+                    hint: 'Phone number, email or username',
+                  ),
+                  BaseTextField(
+                    onChanged: (value) {},
+                    value: '',
+                    hint: 'Password',
+                  ),
+                  _sizedBox,
+
+                  XButton(
+                    label: 'Login',
+                    height: 44,
+                    onPressed: () {},
+                  ),
+                  _sizedBox,
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: Style.textTheme().titleSmall!.copyWith(
+                          color: MyColors.colorGray,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                      children: [
+                        const TextSpan(
+                          text: 'Forgot your login details? ',
+                        ),
+                        TextSpan(
+                            text: 'Get help logging in.',
                             style: Style.textTheme().titleSmall!.copyWith(
-                                color: MyColors.colorBlue,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                    )
-                    // TextButton(
-                    //     onPressed: () {},
-                    //     child: Text(
-                    //       'Login in with Facebook',
-                    //       style: Style.textTheme().titleSmall!.copyWith(
-                    //           color: MyColors.colorBlue,
-                    //           fontSize: 15,
-                    //           fontWeight: FontWeight.w600),
-                    //     ))
-                  ],
-                ),
+                                  color: MyColors.colorBlue,
+                                ),
+                            recognizer: TapGestureRecognizer()..onTap = () {}),
+                      ],
+                    ),
+                  ),
+                  _sizedBox,
+                  const DividerCustom(),
+                  _sizedBox,
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        const WidgetSpan(
+                            alignment: PlaceholderAlignment.middle,
+                            child: Icon(
+                              Icons.facebook,
+                              color: MyColors.colorBlue,
+                            )),
+                        TextSpan(
+                          text: 'Login in with Facebook',
+                          style: Style.textTheme().titleSmall!.copyWith(
+                              color: MyColors.colorBlue,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  )
+                  // TextButton(
+                  //     onPressed: () {},
+                  //     child: Text(
+                  //       'Login in with Facebook',
+                  //       style: Style.textTheme().titleSmall!.copyWith(
+                  //           color: MyColors.colorBlue,
+                  //           fontSize: 15,
+                  //           fontWeight: FontWeight.w600),
+                  //     ))
+                ],
               )
             ],
           ),

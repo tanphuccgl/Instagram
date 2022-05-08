@@ -3,7 +3,7 @@ import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_images.dart';
 import 'package:instagram/src/widgets/appbar/appbar_sign.dart';
-import 'package:instagram/src/widgets/bottom_bar/bottom_%20bar_sign.dart';
+import 'package:instagram/src/widgets/bottom_bar/bottom_bar_sign.dart';
 import 'package:instagram/src/widgets/custom_button/button_primary.dart';
 import 'package:instagram/src/widgets/widget_custom/divider_custom.dart';
 
