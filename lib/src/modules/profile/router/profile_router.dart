@@ -9,6 +9,7 @@ class ProfileCoordinator {
   static const autoRoute = AutoRoute(
       path: DashboardTaps.profileTab,
       page: ProfileWrapperPage,
+      initial: true,
       name: 'ProfileTab',
       children: [
         AutoRoute(path: "", page: ProfilePage, name: "ProfileRoute"),

@@ -34,10 +34,9 @@ class DashboardPage extends StatelessWidget {
             items: [
               for (final item in TabIndex.values)
                 BottomNavigationBarItem(
-                  activeIcon: item.activeIconOf(),
-                  icon: item.iconOf(),
-                  label: ''
-                ),
+                    activeIcon: item.activeIconOf(),
+                    icon: item.iconOf(),
+                    label: ''),
             ],
           );
         });
