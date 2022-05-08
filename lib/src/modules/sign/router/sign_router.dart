@@ -16,7 +16,6 @@ class SignCoordinator {
   static const autoRoute = AutoRoute(
     path: XRoutes.sign,
     name: "SignRouter",
-    initial: true,
     page: SignWrapperPage,
     children: [
       AutoRoute(path: SignRouters.login, page: LoginPage, initial: true),
