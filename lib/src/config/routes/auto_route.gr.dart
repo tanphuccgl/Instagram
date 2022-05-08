@@ -134,6 +134,11 @@ class XRouter extends _i18.RootStackRouter {
                   path: '',
                   parent: DashboardWrapperRoute.name,
                   children: [
+                    _i18.RouteConfig('#redirect',
+                        path: '',
+                        parent: DashboardRoute.name,
+                        redirectTo: 'profile',
+                        fullMatch: true),
                     _i18.RouteConfig(HomeTab.name,
                         path: 'home',
                         parent: DashboardRoute.name,
