@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyColors {
-  
   static const Color colorBackground = Color(0xFFF2F2F2);
   static const Color colorBlue = Color(0xFF3797EF);
   static const Color colorBlack = Color(0xFF000000);
   static const Color colorGray = Color(0xFF9B9B9B);
   static const Color colorWhite = Color(0xFFFFFFFF);
-
+  static const Color colorBlack2 = Color(0xFF262626);
 
   static const Color colorPrimary = Color(0xFFDB3022);
   static const Color colorShadow = Color.fromRGBO(211, 38, 38, 0.25);

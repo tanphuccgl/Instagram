@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/my_fonts.dart';
+import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
 
 class XTheme {
@@ -18,7 +19,7 @@ class XTheme {
             textStyle: const TextStyle(
                 fontSize: 14, fontWeight: FontWeight.w500, height: 1.42),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: MyProperties.borderRadius,
             ),
           ),
         ),

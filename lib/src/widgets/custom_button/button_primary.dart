@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
+import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
 
 class XButton extends StatelessWidget {
@@ -11,7 +12,7 @@ class XButton extends StatelessWidget {
   const XButton(
       {Key? key,
       required this.label,
-      this.width=double.infinity,
+      this.width = double.infinity,
       this.height = 36,
       this.prefixIcon,
       this.onPressed})
@@ -25,12 +26,15 @@ class XButton extends StatelessWidget {
         child: ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
-                primary: MyColors.colorBlue,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-                 onPrimary: MyColors.colorWhite),
+                primary: MyColors.colorBlue,
+                shape: RoundedRectangleBorder(
+                    borderRadius: MyProperties.borderRadius),
+                onPrimary: MyColors.colorWhite),
             child: RichText(
               text: TextSpan(
                 children: [
-                  WidgetSpan(alignment: PlaceholderAlignment.middle,
+                  WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
                     child: prefixIcon ?? const SizedBox.shrink(),
                   ),
                   TextSpan(
