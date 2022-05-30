@@ -16,7 +16,7 @@ dependencies:
   http: ^0.13.4
   shared_preferences: ^2.0.11
   get_it: ^7.2.0
-
+  intl: ^0.17.0
 
   # WIDGET
   bot_toast: ^4.0.1
@@ -26,8 +26,7 @@ dependencies:
   flutter_bloc: ^8.0.0
   auto_route: ^3.2.4
 
-  # FIREBASE
-  # GITHUB
+
 
   # FLUTTER
   flutter:
@@ -35,7 +34,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  intl: ^0.17.0
+
 
 
 dev_dependencies:
