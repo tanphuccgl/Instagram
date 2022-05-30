@@ -13,10 +13,10 @@
 import 'package:auto_route/auto_route.dart' as _i18;
 import 'package:flutter/material.dart' as _i19;
 
+import '../../modules/activity/pages/activity_page.dart' as _i16;
+import '../../modules/activity/router/activity_wrapper_router.dart' as _i11;
 import '../../modules/dashboard/pages/dashboard_page.dart' as _i7;
 import '../../modules/dashboard/router/dashboard_wrapper_router.dart' as _i2;
-import '../../modules/favorites/pages/favorites_page.dart' as _i16;
-import '../../modules/favorites/router/favorites_wrapper_router.dart' as _i11;
 import '../../modules/home/pages/home_page.dart' as _i13;
 import '../../modules/home/router/home_wrapper_router.dart' as _i8;
 import '../../modules/loading/pages/loading_page.dart' as _i4;
@@ -77,9 +77,9 @@ class XRouter extends _i18.RootStackRouter {
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i10.VideoShowWrapperPage());
     },
-    FavoritesTab.name: (routeData) {
+    ActivityTab.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.FavoritesWrapperPage());
+          routeData: routeData, child: const _i11.ActivityWrapperPage());
     },
     ProfileTab.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
@@ -97,9 +97,9 @@ class XRouter extends _i18.RootStackRouter {
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i15.VideoShowPage());
     },
-    FavoritesRoute.name: (routeData) {
+    ActivityRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i16.FavoritesPage());
+          routeData: routeData, child: const _i16.ActivityPage());
     },
     ProfileRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
@@ -175,15 +175,15 @@ class XRouter extends _i18.RootStackRouter {
                               redirectTo: '',
                               fullMatch: true)
                         ]),
-                    _i18.RouteConfig(FavoritesTab.name,
+                    _i18.RouteConfig(ActivityTab.name,
                         path: 'favorites',
                         parent: DashboardRoute.name,
                         children: [
-                          _i18.RouteConfig(FavoritesRoute.name,
-                              path: '', parent: FavoritesTab.name),
+                          _i18.RouteConfig(ActivityRoute.name,
+                              path: '', parent: ActivityTab.name),
                           _i18.RouteConfig('*#redirect',
                               path: '*',
-                              parent: FavoritesTab.name,
+                              parent: ActivityTab.name,
                               redirectTo: '',
                               fullMatch: true)
                         ]),
@@ -322,12 +322,12 @@ class VideoShowTab extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.FavoritesWrapperPage]
-class FavoritesTab extends _i18.PageRouteInfo<void> {
-  const FavoritesTab({List<_i18.PageRouteInfo>? children})
-      : super(FavoritesTab.name, path: 'favorites', initialChildren: children);
+/// [_i11.ActivityWrapperPage]
+class ActivityTab extends _i18.PageRouteInfo<void> {
+  const ActivityTab({List<_i18.PageRouteInfo>? children})
+      : super(ActivityTab.name, path: 'favorites', initialChildren: children);
 
-  static const String name = 'FavoritesTab';
+  static const String name = 'ActivityTab';
 }
 
 /// generated route for
@@ -364,11 +364,11 @@ class VideoShowRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.FavoritesPage]
-class FavoritesRoute extends _i18.PageRouteInfo<void> {
-  const FavoritesRoute() : super(FavoritesRoute.name, path: '');
+/// [_i16.ActivityPage]
+class ActivityRoute extends _i18.PageRouteInfo<void> {
+  const ActivityRoute() : super(ActivityRoute.name, path: '');
 
-  static const String name = 'FavoritesRoute';
+  static const String name = 'ActivityRoute';
 }
 
 /// generated route for

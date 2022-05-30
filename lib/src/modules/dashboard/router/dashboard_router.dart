@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 
 import 'package:instagram/src/config/routes/page_routers.dart';
+import 'package:instagram/src/modules/activity/router/activity_router.dart';
 import 'package:instagram/src/modules/dashboard/pages/dashboard_page.dart';
 import 'package:instagram/src/modules/dashboard/router/dashboard_wrapper_router.dart';
-import 'package:instagram/src/modules/favorites/router/favorites_router.dart';
 import 'package:instagram/src/modules/home/router/home_router.dart';
 import 'package:instagram/src/modules/profile/router/profile_router.dart';
 import 'package:instagram/src/modules/search/router/search_router.dart';
@@ -34,7 +34,7 @@ class DashboardCoordinator {
             HomeCoordinator.autoRoute,
             SearchCoordinator.autoRoute,
             VideoShowCoordinator.autoRoute,
-            FavoritesCoordinator.autoRoute,
+            ActivityCoordinator.autoRoute,
             ProfileCoordinator.autoRoute,
             RedirectRoute(path: '*', redirectTo: ''),
           ]),
