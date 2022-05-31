@@ -84,8 +84,8 @@ class _BaseTextFieldState extends State<BaseTextField> {
       return actions[0];
     }
     return Row(
-      children: actions,
       mainAxisSize: MainAxisSize.min,
+      children: actions,
     );
   }
 

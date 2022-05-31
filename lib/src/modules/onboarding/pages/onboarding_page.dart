@@ -12,7 +12,7 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const _sizedBox = SizedBox(height: 10);
+    const sizedBox = SizedBox(height: 10);
     return Scaffold(
       backgroundColor: MyColors.colorBackground,
       bottomNavigationBar: BottomBarSign(
@@ -49,14 +49,14 @@ class OnboardingPage extends StatelessWidget {
                       height: 44,
                       onPressed: () {},
                     ),
-                    _sizedBox,
+                    sizedBox,
                     Text(
                         'Trần Đức Tính, Lê Phước Gia Thịnh and 145 other friends are using Instagram.',
                         textAlign: TextAlign.center,
                         style: Style.textTheme()
                             .titleSmall!
                             .copyWith(color: MyColors.colorGray, fontSize: 15)),
-                    _sizedBox,
+                    sizedBox,
                     const DividerCustom(),
                     TextButton(
                         onPressed: () {},

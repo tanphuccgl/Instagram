@@ -114,7 +114,7 @@ class InfoWidget extends StatelessWidget {
             fontWeight: FontWeight.w600),
         children: [
           TextSpan(
-            text: number.toString() + "\n",
+            text: "$number\n",
           ),
           TextSpan(
             text: name,

@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const _sizedBox = SizedBox(height: 10);
+    const sizedBox = SizedBox(height: 10);
 
     return Scaffold(
       bottomNavigationBar: BottomBarSign(
@@ -53,14 +53,14 @@ class LoginPage extends StatelessWidget {
                     value: '',
                     hint: 'Password',
                   ),
-                  _sizedBox,
+                  sizedBox,
 
                   XButton(
                     label: 'Login',
                     height: 44,
                     onPressed: () {},
                   ),
-                  _sizedBox,
+                  sizedBox,
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
@@ -81,9 +81,9 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  _sizedBox,
+                  sizedBox,
                   const DividerCustom(),
-                  _sizedBox,
+                  sizedBox,
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
