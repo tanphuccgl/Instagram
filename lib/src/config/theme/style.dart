@@ -18,6 +18,11 @@ class Style {
           color: MyColors.colorWhite,
           fontWeight: FontWeight.w600,
         ),
+        labelMedium: TextStyle(
+          fontSize: 17,
+          color: MyColors.colorBlack,
+          fontWeight: FontWeight.normal,
+        ),
         bodyMedium: TextStyle(
           fontSize: 14,
           color: MyColors.colorBlack,
