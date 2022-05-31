@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/constants/my_network.dart';
 import 'package:instagram/src/widgets/custom_button/button_outline.dart';
 import 'package:instagram/src/widgets/custom_button/icon_button_outline.dart';
 
@@ -20,7 +21,7 @@ class InfoWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(300.0),
               child: Image.network(
-                "https://images.unsplash.com/photo-1523285367489-d38aec03b6bd",
+                MyNetwork.urlAvatar,
                 fit: BoxFit.cover,
                 width: 96,
                 height: 96,

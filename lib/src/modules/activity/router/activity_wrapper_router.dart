@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-class FavoritesWrapperPage extends StatelessWidget {
-  const FavoritesWrapperPage({
+class ActivityWrapperPage extends StatelessWidget {
+  const ActivityWrapperPage({
     Key? key,
   }) : super(key: key);
 

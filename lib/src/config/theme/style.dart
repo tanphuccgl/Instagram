@@ -8,10 +8,25 @@ class Style {
           color: MyColors.colorBlack,
           fontWeight: FontWeight.normal,
         ),
+        titleMedium: TextStyle(
+          fontSize: 25,
+          color: MyColors.colorBlack,
+          fontWeight: FontWeight.w600,
+        ),
         labelSmall: TextStyle(
           fontSize: 14,
           color: MyColors.colorWhite,
           fontWeight: FontWeight.w600,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          color: MyColors.colorBlack,
+          fontWeight: FontWeight.normal,
+        ),
+        bodySmall: TextStyle(
+          fontSize: 14,
+          color: MyColors.colorBlack,
+          fontWeight: FontWeight.normal,
         ),
       );
 }
