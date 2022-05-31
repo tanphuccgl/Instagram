@@ -7,6 +7,8 @@ class MyColors {
   static const Color colorGray = Color(0xFF9B9B9B);
   static const Color colorWhite = Color(0xFFFFFFFF);
   static const Color colorBlack2 = Color(0xFF262626);
+  static const Color colorGray3 = Color(0xFF767680);
+  static const Color colorBlack3 = Color(0xFF3C3C43);
 
   static const Color colorPrimary = Color(0xFFDB3022);
   static const Color colorShadow = Color.fromRGBO(211, 38, 38, 0.25);
@@ -18,5 +20,4 @@ class MyColors {
   static const Color colorInputTextFormField = Color(0xFF2D2D2D);
   static const Color colorBackgroundAvatar = Color(0xFFC4C4C4);
   static const Color colorShadowCircle = Color(0xFF000000);
-  static const Color colorGray3 = Color(0xFF4F4F4F);
 }
