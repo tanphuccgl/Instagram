@@ -7,6 +7,7 @@ import 'package:instagram/src/config/theme/style.dart';
 class XTheme {
   static ThemeData light() => ThemeData(
         backgroundColor: MyColors.colorWhite,
+        iconTheme: const IconThemeData(color: Colors.white),
         appBarTheme: const AppBarTheme(
             backgroundColor: MyColors.colorWhite, elevation: 0),
         scaffoldBackgroundColor: MyColors.colorWhite,
