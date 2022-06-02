@@ -8,8 +8,10 @@ class XIconButtonOutline extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget icon;
   final bool isCircle;
+  final BorderSide? side;
   const XIconButtonOutline(
       {Key? key,
+      this.side,
       this.width = double.infinity,
       this.height = 36,
       this.isCircle = false,
@@ -30,8 +32,10 @@ class XIconButtonOutline extends StatelessWidget {
                 primary: MyColors.colorWhite,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 shape: isCircle
-                    ? const CircleBorder(
-                        side: BorderSide(color: MyColors.colorGray, width: 1))
+                    ? CircleBorder(
+                        side: side ??
+                            const BorderSide(
+                                color: MyColors.colorGray, width: 1))
                     : RoundedRectangleBorder(
                         borderRadius: MyProperties.borderRadius),
                 onPrimary: MyColors.colorGray),
