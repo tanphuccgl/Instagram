@@ -9,6 +9,7 @@ class XTheme {
         backgroundColor: MyColors.colorWhite,
         iconTheme: const IconThemeData(color: Colors.white),
         appBarTheme: const AppBarTheme(
+            titleTextStyle: TextStyle(color: Colors.black),
             iconTheme: IconThemeData(color: Colors.black),
             backgroundColor: MyColors.colorWhite,
             elevation: 0),
