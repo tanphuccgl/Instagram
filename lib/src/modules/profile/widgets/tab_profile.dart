@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
+import 'package:instagram/src/constants/my_network.dart';
+import 'package:instagram/src/modules/profile/router/profile_router.dart';
 
 class TabProfile extends StatelessWidget {
   const TabProfile({Key? key}) : super(key: key);
@@ -9,8 +11,8 @@ class TabProfile extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Column(
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 44,
             child: TabBar(
               indicatorColor: MyColors.colorBlack,
@@ -30,8 +32,28 @@ class TabProfile extends StatelessWidget {
             height: 500,
             child: TabBarView(
               children: [
-                Icon(Icons.directions_car),
-                Icon(Icons.directions_transit),
+                GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 4.0,
+                    physics: const NeverScrollableScrollPhysics(),
+                    mainAxisSpacing: 4.0,
+                    children: List.generate(13, (index) {
+                      return GestureDetector(
+                        onTap: () =>
+                            ProfileCoordinator.showPostProfilePage(context),
+                        child: Image.network(
+                          MyNetwork.urlAvatar,
+                          fit: BoxFit.cover,
+                          width: 96,
+                          height: 96,
+                        ),
+                      );
+                    })),
+                const Icon(
+                  Icons.directions_transit,
+                  color: Colors.black,
+                ),
               ],
             ),
           ),

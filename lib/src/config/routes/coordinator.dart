@@ -13,4 +13,8 @@ class XCoordinator {
   static showChats(BuildContext context) {
     context.router.push(const ChatWrapperRoute());
   }
+
+  static showEditProfile(BuildContext context) {
+    context.router.push(const EditProfileWrapperRoute());
+  }
 }

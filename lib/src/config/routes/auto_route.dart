@@ -4,6 +4,7 @@ import 'package:instagram/src/modules/chat/router/chat_router.dart';
 import 'package:instagram/src/modules/dashboard/router/dashboard_router.dart';
 import 'package:instagram/src/modules/loading/pages/loading_page.dart';
 import 'package:instagram/src/modules/onboarding/pages/onboarding_page.dart';
+import 'package:instagram/src/modules/profile/router/edit_profile_router.dart';
 import 'package:instagram/src/modules/sign/router/sign_router.dart';
 
 @MaterialAutoRouter(
@@ -12,7 +13,7 @@ import 'package:instagram/src/modules/sign/router/sign_router.dart';
     SignCoordinator.autoRoute,
     DashboardCoordinator.autoRoute,
     ChatCoordinator.autoRoute,
-
+    EditProfileCoordinator.autoRoute,
     AutoRoute(
       path: XRoutes.onboard,
       page: OnboardingPage,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
@@ -44,7 +45,9 @@ class InfoWidget extends StatelessWidget {
           children: [
             Expanded(
               child: XButtonOutline(
-                  label: 'Edit Profile', height: 29, onPressed: () {}),
+                  label: 'Edit Profile',
+                  height: 29,
+                  onPressed: () => XCoordinator.showEditProfile(context)),
             ),
             const SizedBox(
               width: 10,
