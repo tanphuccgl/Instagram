@@ -4,7 +4,8 @@ import 'package:instagram/src/config/theme/my_colors.dart';
 class XBottomSheet {
   static show(context,
       {required Widget widget,
-      Color backgroundColor = MyColors.colorWhite}) async {
+      Color backgroundColor = MyColors.colorWhite,
+      bool isShowLineTop = true}) async {
     const radius = Radius.circular(34);
 
     return await showModalBottomSheet<void>(
@@ -18,7 +19,12 @@ class XBottomSheet {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
-              children: [_lineOnTopBottomSheet(), widget],
+              children: [
+                isShowLineTop == true
+                    ? _lineOnTopBottomSheet()
+                    : const SizedBox.shrink(),
+                widget
+              ],
             ),
           );
         });
