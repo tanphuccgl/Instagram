@@ -10,4 +10,7 @@ class XCoordinator {
       rootRouter.navigatorKey.currentState!.context;
 
   static pop(BuildContext context) => context.router.pop();
+  static showChats(BuildContext context) {
+    context.router.push(const ChatWrapperRoute());
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/constants/my_images.dart';
 import 'package:instagram/src/modules/home/widgets/new_feed/card_home.dart';
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
                 color: MyColors.colorBlack,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () => XCoordinator.showChats(context),
               icon: const Icon(Icons.message_outlined,
                   color: MyColors.colorBlack))
         ],
