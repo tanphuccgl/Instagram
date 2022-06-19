@@ -9,7 +9,9 @@ class XTheme {
         backgroundColor: MyColors.colorWhite,
         iconTheme: const IconThemeData(color: Colors.white),
         appBarTheme: const AppBarTheme(
-            backgroundColor: MyColors.colorWhite, elevation: 0),
+            iconTheme: IconThemeData(color: Colors.black),
+            backgroundColor: MyColors.colorWhite,
+            elevation: 0),
         scaffoldBackgroundColor: MyColors.colorWhite,
         textTheme: Style.textTheme(),
         fontFamily: XFonts.metropolis,
