@@ -10,11 +10,14 @@ class XCoordinator {
       rootRouter.navigatorKey.currentState!.context;
 
   static pop(BuildContext context) => context.router.pop();
-  static showChats(BuildContext context) {
-    context.router.push(const ChatWrapperRoute());
-  }
 
-  static showEditProfile(BuildContext context) {
-    context.router.push(const EditProfileWrapperRoute());
-  }
+  static showChats(BuildContext context) =>
+      context.router.push(const ChatWrapperRoute());
+
+  static showEditProfile(BuildContext context) =>
+      context.router.push(const EditProfileWrapperRoute());
+
+  static showDashboard() => rootRouter.replace(const DashboardWrapperRoute());
+
+  static logout() => rootRouter.replace(const SignRouter());
 }

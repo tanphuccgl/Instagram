@@ -24,7 +24,6 @@ class DashboardCoordinator {
     path: XRoutes.dashboard,
     name: "DashboardWrapperRoute",
     page: DashboardWrapperPage,
-    initial: true,
     children: [
       AutoRoute(
           name: "DashboardRoute",

@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:instagram/src/config/theme/themes.dart';
-import 'package:bot_toast/bot_toast.dart';
+import 'package:instagram/src/modules/account/logic/account_bloc.dart';
 
 import 'config/routes/auto_route.gr.dart';
 import 'localization/localization_util.dart';
@@ -18,27 +21,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appRouter = GetIt.I<XRouter>();
 
-    return MaterialApp.router(
-      theme: XTheme.light(),
-      builder: BotToastInit(),
-      debugShowCheckedModeBanner: false,
-      darkTheme: XTheme.dark(),
-      themeMode: ThemeMode.light,
-      restorationScopeId: 'app',
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''),
-      ],
-      onGenerateTitle: (BuildContext context) => S.of(context).appTitle,
-      routeInformationParser: appRouter.defaultRouteParser(
-        includePrefixMatches: true,
+    return BlocProvider(
+      create: (_) => AccountBloc(),
+      child: MaterialApp.router(
+        theme: XTheme.light(),
+        builder: EasyLoading.init(builder: BotToastInit()),
+        debugShowCheckedModeBanner: false,
+        darkTheme: XTheme.dark(),
+        themeMode: ThemeMode.light,
+        restorationScopeId: 'app',
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', ''),
+        ],
+        onGenerateTitle: (BuildContext context) => S.of(context).appTitle,
+        routeInformationParser: appRouter.defaultRouteParser(
+          includePrefixMatches: true,
+        ),
+        routerDelegate: AutoRouterDelegate(appRouter),
       ),
-      routerDelegate: AutoRouterDelegate(appRouter),
     );
   }
 }

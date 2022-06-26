@@ -140,7 +140,7 @@ class XRouter extends _i24.RootStackRouter {
   @override
   List<_i24.RouteConfig> get routes => [
         _i24.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/dashboard', fullMatch: true),
+            path: '/', redirectTo: '', fullMatch: true),
         _i24.RouteConfig(SignRouter.name, path: '/sign', children: [
           _i24.RouteConfig('#redirect',
               path: '',
