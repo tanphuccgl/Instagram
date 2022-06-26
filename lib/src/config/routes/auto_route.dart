@@ -21,7 +21,7 @@ import 'package:instagram/src/modules/sign/router/sign_router.dart';
     AutoRoute(
       path: XRoutes.loading,
       page: LoadingPage,
-//      initial: true,
+      initial: true,
     ),
 
     // redirect all other paths

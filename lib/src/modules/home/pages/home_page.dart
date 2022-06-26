@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/constants/my_images.dart';
+import 'package:instagram/src/modules/account/logic/account_bloc.dart';
 import 'package:instagram/src/modules/home/widgets/new_feed/card_home.dart';
 import 'package:instagram/src/modules/home/widgets/story/story_bar.dart';
 
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () => context.read<AccountBloc>().logout(),
               icon: const Icon(
                 Icons.add_box_outlined,
                 color: MyColors.colorBlack,
