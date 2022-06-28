@@ -26,7 +26,7 @@ class LoadingPage extends StatelessWidget {
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Text('Lo1123ading....'),
+              Text('Loading....'),
               CircularProgressIndicator(),
             ],
           )),

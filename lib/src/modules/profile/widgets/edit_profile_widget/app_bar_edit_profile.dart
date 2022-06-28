@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
-import 'package:instagram/src/widgets/bottom_sheet/bottom_sheet.dart';
-import 'package:instagram/src/widgets/bottom_sheet/profile/bottom_sheet_create_profile.dart';
 
 class AppBarEditProfile extends StatelessWidget implements PreferredSizeWidget {
+  final Widget iconCheck;
   const AppBarEditProfile({
     Key? key,
+    required this.iconCheck,
   }) : super(key: key);
 
   @override
@@ -24,14 +24,7 @@ class AppBarEditProfile extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(color: Colors.black),
       ),
       actions: [
-        IconButton(
-            onPressed: () => XBottomSheet.show(context,
-                backgroundColor: MyColors.colorBackground,
-                widget: const BottomSheetCreateProfile()),
-            icon: const Icon(
-              Icons.check,
-              color: Colors.blue,
-            )),
+        iconCheck,
       ],
     );
   }

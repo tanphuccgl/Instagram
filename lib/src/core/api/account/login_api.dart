@@ -10,7 +10,7 @@ class LoginRemoteDataSource {
     var body = jsonEncode({'username': username, 'password': password});
 
     var value =
-        await BaseApi.onConnectApiNoToken(body: body, url: ApiUrl.postLogin);
+        await BaseApi.onPostApiNoToken(body: body, url: ApiUrl.postLogin);
     if (value.isSuccess) {
       var success = XLogin.fromJson(json.decode(value.data ?? ""));
 
