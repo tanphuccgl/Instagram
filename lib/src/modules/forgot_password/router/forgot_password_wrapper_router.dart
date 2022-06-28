@@ -7,8 +7,6 @@ class ForgotPasswordWrapperPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async => false,
-        child: const Scaffold(body: AutoRouter()));
+    return const Scaffold(body: AutoRouter());
   }
 }

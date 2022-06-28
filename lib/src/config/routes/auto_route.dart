@@ -16,6 +16,7 @@ import 'package:instagram/src/modules/sign/router/sign_router.dart';
     ChatCoordinator.autoRoute,
     EditProfileCoordinator.autoRoute,
     ForgotPasswordCoordinator.autoRoute,
+
     AutoRoute(
       path: XRoutes.onboard,
       page: OnboardingPage,
