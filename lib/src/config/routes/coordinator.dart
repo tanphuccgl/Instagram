@@ -20,4 +20,6 @@ class XCoordinator {
   static showDashboard() => rootRouter.replace(const DashboardWrapperRoute());
 
   static logout() => rootRouter.replace(const SignRouter());
+  static showForgotPassword(BuildContext context) =>
+      context.router.push(const ForgotPasswordWrapperRoute());
 }
