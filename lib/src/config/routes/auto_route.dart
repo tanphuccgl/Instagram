@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:instagram/src/config/routes/page_routers.dart';
 import 'package:instagram/src/modules/chat/router/chat_router.dart';
 import 'package:instagram/src/modules/dashboard/router/dashboard_router.dart';
+import 'package:instagram/src/modules/forgot_password/router/forgot_password_router.dart';
 import 'package:instagram/src/modules/loading/pages/loading_page.dart';
 import 'package:instagram/src/modules/onboarding/pages/onboarding_page.dart';
 import 'package:instagram/src/modules/profile/router/edit_profile_router.dart';
@@ -14,6 +15,8 @@ import 'package:instagram/src/modules/sign/router/sign_router.dart';
     DashboardCoordinator.autoRoute,
     ChatCoordinator.autoRoute,
     EditProfileCoordinator.autoRoute,
+    ForgotPasswordCoordinator.autoRoute,
+
     AutoRoute(
       path: XRoutes.onboard,
       page: OnboardingPage,
