@@ -18,9 +18,9 @@ class CheckAccountBloc extends Cubit<CheckAccountState> {
     emit(state.copyWith(isLoading: true));
     final value = await _domain.account.checkUsername(state.username);
     if (value.isSuccess) {
-      emit(state.copyWith(canUse: true));
+      emit(state.copyWith(isCheck: true));
     } else {
-      emit(state.copyWith(canUse: false));
+      emit(state.copyWith(isCheck: false));
 
       XSnackBar.show(msg: "The username ${state.username} is not avaliable");
     }

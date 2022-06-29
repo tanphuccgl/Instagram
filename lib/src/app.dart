@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:instagram/src/config/theme/themes.dart';
 import 'package:instagram/src/modules/account/logic/account_bloc.dart';
+import 'package:instagram/src/modules/account/logic/check_account_bloc.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
 
 import 'config/routes/auto_route.gr.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ProfileBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CheckAccountBloc(),
         ),
       ],
       child: MaterialApp.router(

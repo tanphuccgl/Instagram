@@ -13,7 +13,7 @@ class LoadingPage extends StatelessWidget {
       listener: (context, state) {
         if (state.isLoading == false) {
           if (state.tokenUser == "" || state.tokenUser == "N/A") {
-            SignCoordinator.showSignUp(context);
+            SignCoordinator.showSign(context);
           } else {
             XCoordinator.showDashboard();
           }

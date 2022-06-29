@@ -1,8 +1,10 @@
 import 'package:instagram/src/core/api/account/check_account_api.dart';
 import 'package:instagram/src/core/api/account/forgot_password_api.dart';
 import 'package:instagram/src/core/api/account/login_api.dart';
+import 'package:instagram/src/core/api/account/register_api.dart';
 import 'package:instagram/src/models/base_data.dart';
 import 'package:instagram/src/models/check_account_forgot_model.dart';
+import 'package:instagram/src/models/check_account_model.dart';
 import 'package:instagram/src/models/login_model.dart';
 import 'package:instagram/src/models/result.dart';
 import 'package:instagram/src/models/token_forgot_password_model.dart';
@@ -21,7 +23,7 @@ class AccountRepositoryImpl extends AccountRepository {
   }
 
   @override
-  Future<XResult<BaseData>> checkUsername(String username) async {
+  Future<XResult<XCheckAccount>> checkUsername(String username) async {
     try {
       var data = await CheckAccountRemoteDataSource().checkUsername(username);
       return XResult.success(data);
@@ -71,6 +73,44 @@ class AccountRepositoryImpl extends AccountRepository {
     try {
       var data =
           await ForgotPasswordRemoteDataSource().checkAccountForgot(username);
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<BaseData>> postRegister(
+      {required String username,
+      required String password,
+      required String fullName,
+      required String email}) async {
+    try {
+      var data = await RegisterRemoteDataSource().postRegister(
+          username: username,
+          password: password,
+          fullName: fullName,
+          email: email);
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<BaseData>> checkEmail(String email) async {
+    try {
+      var data = await CheckAccountRemoteDataSource().checkEmail(email);
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<BaseData>> checkPhone(String phone) async {
+    try {
+      var data = await CheckAccountRemoteDataSource().checkPhone(phone);
       return XResult.success(data);
     } catch (e) {
       return XResult.error(e.toString());

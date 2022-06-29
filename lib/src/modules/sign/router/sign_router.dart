@@ -21,6 +21,7 @@ class SignCoordinator {
       AutoRoute(
         path: SignRouters.signUp,
         page: SignUpPage,
+        name: "SignUpRoute",
       ),
       RedirectRoute(path: '*', redirectTo: ''),
     ],
@@ -31,6 +32,10 @@ class SignCoordinator {
   }
 
   static showSignUp(BuildContext context) {
+    context.router.pushNamed(SignRouters.signUp);
+  }
+
+  static showSign(BuildContext context) {
     context.router.replace(const SignRouter());
   }
 }

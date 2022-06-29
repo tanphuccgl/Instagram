@@ -10,8 +10,11 @@ class BaseTextField extends StatefulWidget {
   final Function(String) onChanged;
   final String value;
   final bool isAction;
+  final Function()? onEditingComplete;
+
   const BaseTextField(
       {Key? key,
+      this.onEditingComplete,
       required this.value,
       required this.hint,
       required this.onChanged,
@@ -99,6 +102,7 @@ class _BaseTextFieldState extends State<BaseTextField> {
             border: Border.all(color: MyColors.colorGray, width: 0.5)),
         height: 44,
         child: TextField(
+          onEditingComplete: widget.onEditingComplete,
           style: Style.textTheme()
               .labelSmall!
               .copyWith(color: MyColors.colorBlack2),
