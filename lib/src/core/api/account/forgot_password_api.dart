@@ -11,8 +11,8 @@ class ForgotPasswordRemoteDataSource {
   Future<BaseData> forgotPassword(String username) async {
     var body = jsonEncode({'username': username});
 
-    var value = await BaseApi.onConnectApiNoToken(
-        body: body, url: ApiUrl.forgotPassword);
+    var value =
+        await BaseApi.onPostApiNoToken(body: body, url: ApiUrl.forgotPassword);
     if (value.isSuccess) {
       var success = BaseData.fromJson(json.decode(value.data ?? ""));
 
@@ -29,7 +29,7 @@ class ForgotPasswordRemoteDataSource {
       "token": token,
     });
 
-    var value = await BaseApi.onConnectApiNoToken(
+    var value = await BaseApi.onPostApiNoToken(
         body: body, url: ApiUrl.tokenForgotPasswordEmail);
     if (value.isSuccess) {
       var success =
@@ -63,7 +63,7 @@ class ForgotPasswordRemoteDataSource {
       'username': username,
     });
 
-    var value = await BaseApi.onConnectApiNoToken(
+    var value = await BaseApi.onPostApiNoToken(
         body: body, url: ApiUrl.checkAccountForgot);
     if (value.isSuccess) {
       var success = XCheckAccountForgot.fromJson(json.decode(value.data ?? ""));

@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:instagram/src/config/theme/themes.dart';
 import 'package:instagram/src/modules/account/logic/account_bloc.dart';
+import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
 
 import 'config/routes/auto_route.gr.dart';
 import 'localization/localization_util.dart';
@@ -21,8 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appRouter = GetIt.I<XRouter>();
 
-    return BlocProvider(
-      create: (_) => AccountBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AccountBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProfileBloc(),
+        ),
+      ],
       child: MaterialApp.router(
         theme: XTheme.light(),
         builder: EasyLoading.init(builder: BotToastInit()),

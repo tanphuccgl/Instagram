@@ -7,6 +7,8 @@ import 'package:instagram/src/models/token_forgot_password_model.dart';
 abstract class AccountRepository {
   Future<XResult<XLoginData>> postLogin(
       {required String username, required String password});
+  Future<XResult<BaseData>> checkUsername(String username);
+
   Future<XResult<BaseData>> postForgotPassword(String username);
   Future<XResult<XTokenForgotPassword>> postTokenForgotPassword(
       {required String username, required String token});

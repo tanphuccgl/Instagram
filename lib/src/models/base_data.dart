@@ -1,21 +1,21 @@
 class BaseData {
-  int? status;
-  bool? success;
   String? message;
+  bool? success;
+  int? status;
 
-  BaseData({this.status, this.success, this.message});
+  BaseData({this.message, this.success, this.status});
 
   BaseData.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
-    success = json['success'];
     message = json['message'];
+    success = json['success'];
+    status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
-    data['success'] = success;
     data['message'] = message;
+    data['success'] = success;
+    data['status'] = status;
     return data;
   }
 }
