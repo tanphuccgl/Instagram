@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_images.dart';
@@ -84,7 +85,8 @@ class LoginPage extends StatelessWidget {
                                       color: MyColors.colorBlue,
                                     ),
                                 recognizer: TapGestureRecognizer()
-                                  ..onTap = () {}),
+                                  ..onTap = () =>
+                                      XCoordinator.showForgotPassword(context))
                           ],
                         ),
                       ),

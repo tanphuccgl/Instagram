@@ -1,14 +1,16 @@
-class BaseData {
+class XTokenForgotPassword {
   String? message;
   bool? success;
   int? status;
+  String? token;
 
-  BaseData({this.message, this.success, this.status});
+  XTokenForgotPassword({this.message, this.success, this.status, this.token});
 
-  BaseData.fromJson(Map<String, dynamic> json) {
+  XTokenForgotPassword.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     success = json['success'];
     status = json['status'];
+    token = json['token'];
   }
 
   Map<String, dynamic> toJson() {
@@ -16,6 +18,7 @@ class BaseData {
     data['message'] = message;
     data['success'] = success;
     data['status'] = status;
+    data['token'] = token;
     return data;
   }
 }
