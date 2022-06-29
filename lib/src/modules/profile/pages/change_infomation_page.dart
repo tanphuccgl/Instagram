@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
-import 'package:instagram/src/modules/profile/logic/edit_profile/check_account_bloc.dart';
+import 'package:instagram/src/modules/account/logic/check_account_bloc.dart';
 import 'package:instagram/src/modules/profile/widgets/edit_profile_widget/app_bar_edit_profile.dart';
 import 'package:instagram/src/modules/profile/widgets/edit_profile_widget/text_field_edit_profile.dart';
 
@@ -45,14 +45,14 @@ class ChangeInformationPage extends StatelessWidget {
 
   Widget _iconButtonCheck() {
     return BlocBuilder<CheckAccountBloc, CheckAccountState>(
-      buildWhen: (previous, current) => previous.canUse != current.canUse,
+      buildWhen: (previous, current) => previous.isCheck != current.isCheck,
       builder: (context, state) {
         return IconButton(
             onPressed:
-                state.canUse == false ? null : () => XCoordinator.pop(context),
+                state.isCheck == false ? null : () => XCoordinator.pop(context),
             icon: Icon(
               Icons.check,
-              color: state.canUse == false
+              color: state.isCheck == false
                   ? Colors.blue.withOpacity(0.5)
                   : Colors.blue,
             ));
