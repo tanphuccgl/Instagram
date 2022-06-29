@@ -6,7 +6,7 @@ class CheckAccountState extends Equatable {
   final bool canUse;
 
   const CheckAccountState({
-    this.username = "",
+    required this.username,
     this.isLoading = false,
     this.canUse = false,
   });
