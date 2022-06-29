@@ -9,28 +9,25 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AccountBloc(),
-      child: BlocListener<AccountBloc, AccountState>(
-        listener: (context, state) {
-          if (state.isLoading == false) {
-            if (state.tokenUser == "" || state.tokenUser == "N/A") {
-              SignCoordinator.showSignUp(context);
-            } else {
-              XCoordinator.showDashboard();
-            }
+    return BlocListener<AccountBloc, AccountState>(
+      listener: (context, state) {
+        if (state.isLoading == false) {
+          if (state.tokenUser == "" || state.tokenUser == "N/A") {
+            SignCoordinator.showSignUp(context);
+          } else {
+            XCoordinator.showDashboard();
           }
-        },
-        child: Scaffold(
-          body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Loading....'),
-              CircularProgressIndicator(),
-            ],
-          )),
-        ),
+        }
+      },
+      child: Scaffold(
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('Loading....'),
+            CircularProgressIndicator(),
+          ],
+        )),
       ),
     );
   }
