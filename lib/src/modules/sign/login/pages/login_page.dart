@@ -6,6 +6,7 @@ import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_images.dart';
 import 'package:instagram/src/modules/sign/login/logic/login_bloc.dart';
+import 'package:instagram/src/modules/sign/router/sign_router.dart';
 import 'package:instagram/src/widgets/appbar/appbar_sign.dart';
 import 'package:instagram/src/widgets/bottom_bar/bottom_bar_sign.dart';
 import 'package:instagram/src/widgets/custom_button/button_primary.dart';
@@ -26,7 +27,7 @@ class LoginPage extends StatelessWidget {
           bottomNavigationBar: BottomBarSign(
               textLeft: 'Dont\'t have an account? ',
               textRight: 'Sign up.',
-              voidCallback: () {}),
+              voidCallback: () => SignCoordinator.showSignUp(context)),
           appBar: const AppBarSign(),
           body: SingleChildScrollView(
             child: Padding(
