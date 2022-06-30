@@ -31,4 +31,10 @@ class ApiUrl {
   static const String getInformation = "$baseUrl/Profile/Information";
 
   static const String putInformation = "$baseUrl/Profile/ChangeInformation";
+
+  /// API Follow
+
+  static const String getFollowers = "$baseUrl/Follow/TotalPeopleFollowedYou";
+
+  static const String getFollowing = "$baseUrl/Follow/TotalPeopleYouFollowed";
 }
