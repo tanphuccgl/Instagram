@@ -36,6 +36,9 @@ class ApiUrl {
 
   static const String removeAvatar = "$baseUrl/Profile/RemoveAvatar";
 
+  static String getSearchUserName(String username) =>
+      "$baseUrl/Profile/SearchUserName?username=$username";
+
   /// API Follow
 
   static const String getFollowers = "$baseUrl/Follow/TotalPeopleFollowedYou";

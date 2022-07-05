@@ -28,8 +28,10 @@ class ProfileCoordinator {
             path: ProfileRouters.follow, page: FollowPage, name: "FollowRoute"),
         RedirectRoute(path: '*', redirectTo: ''),
       ]);
+
   static void showPostProfilePage(BuildContext context) =>
       context.router.push(const PostProfileRoute());
+
   static void showFollow(BuildContext context, int? initialIndex) {
     context.router.pushWidget(FollowPage(
       initialIndex: initialIndex ?? 0,
