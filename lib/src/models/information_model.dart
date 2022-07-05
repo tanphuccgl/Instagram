@@ -36,6 +36,8 @@ class XInformationData {
   bool? deleted;
   String? createdAt;
   String? updatedAt;
+  int? totalPeopleYouFollowed;
+  int? totalPeopleFollowedYou;
 
   XInformationData(
       {this.id,
@@ -49,7 +51,9 @@ class XInformationData {
       this.avartarUrl,
       this.deleted,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.totalPeopleYouFollowed,
+      this.totalPeopleFollowedYou});
 
   XInformationData.fromJson(Map<String, dynamic> json) {
     id = json['Id'];
@@ -66,9 +70,8 @@ class XInformationData {
     deleted = json['Deleted'];
     createdAt = json['CreatedAt'];
     updatedAt = json['UpdatedAt'];
-  }
-  factory XInformationData.empty() {
-    return XInformationData();
+    totalPeopleYouFollowed = json['TotalPeopleYouFollowed'];
+    totalPeopleFollowedYou = json['TotalPeopleFollowedYou'];
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +90,8 @@ class XInformationData {
     data['Deleted'] = deleted;
     data['CreatedAt'] = createdAt;
     data['UpdatedAt'] = updatedAt;
+    data['TotalPeopleYouFollowed'] = totalPeopleYouFollowed;
+    data['TotalPeopleFollowedYou'] = totalPeopleFollowedYou;
     return data;
   }
 }
