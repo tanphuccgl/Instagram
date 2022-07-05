@@ -31,4 +31,8 @@ class ApiUrl {
   static const String getInformation = "$baseUrl/Profile/Information";
 
   static const String putInformation = "$baseUrl/Profile/ChangeInformation";
+
+  static const String postAvatar = "$baseUrl/Profile/UploadAvatar";
+
+  static const String removeAvatar = "$baseUrl/Profile/RemoveAvatar";
 }

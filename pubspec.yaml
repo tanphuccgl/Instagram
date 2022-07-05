@@ -2,7 +2,7 @@ name: instagram
 description: A new Flutter project.
 
 # Prevent accidental publishing to pub.dev.
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -25,8 +25,6 @@ dependencies:
   # STATE MANAGEMENT
   flutter_bloc: ^8.0.0
 
-
-
   # FLUTTER
   flutter:
     sdk: flutter
@@ -36,9 +34,8 @@ dependencies:
   auto_route: ^4.0.1
   internet_connection_checker: ^0.0.1+4
   flutter_easyloading: ^3.0.4
-
-
-
+  image_picker: ^0.8.5+3
+  http_parser: ^4.0.1
 
 dev_dependencies:
   flutter_test:
