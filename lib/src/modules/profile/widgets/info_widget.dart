@@ -5,7 +5,9 @@ import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_network.dart';
+import 'package:instagram/src/modules/profile/logic/follow/follow_bloc.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
+import 'package:instagram/src/modules/profile/router/profile_router.dart';
 import 'package:instagram/src/widgets/custom_button/button_outline.dart';
 import 'package:instagram/src/widgets/custom_button/icon_button_outline.dart';
 
@@ -37,8 +39,10 @@ class InfoWidget extends StatelessWidget {
                   width: 20,
                 ),
                 Expanded(
-                    child: _statisticsWidget(
-                        post: 54, followers: 843, following: 162))
+                    child: _statisticsWidget(context,
+                        post: 54,
+                        followers: state.data.totalPeopleFollowedYou ?? 0,
+                        following: state.data.totalPeopleYouFollowed ?? 0))
               ],
             ),
             const SizedBox(
@@ -97,7 +101,7 @@ class InfoWidget extends StatelessWidget {
     );
   }
 
-  Widget _statisticsWidget(
+  Widget _statisticsWidget(BuildContext context,
       {required int post, required int followers, required int following}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -106,8 +110,19 @@ class InfoWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _statisticItem(post, 'Posts'),
-          _statisticItem(followers, 'Followers'),
-          _statisticItem(following, 'Following')
+          GestureDetector(
+              onTap: () {
+                context.read<FollowBloc>().getFollowers();
+                ProfileCoordinator.showFollow(context, 0);
+              },
+              child: _statisticItem(followers, 'Followers')),
+          GestureDetector(
+              onTap: () {
+                context.read<FollowBloc>().getFollowing();
+
+                ProfileCoordinator.showFollow(context, 1);
+              },
+              child: _statisticItem(following, 'Following'))
         ],
       ),
     );

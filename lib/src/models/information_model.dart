@@ -73,6 +73,9 @@ class XInformationData {
     totalPeopleYouFollowed = json['TotalPeopleYouFollowed'];
     totalPeopleFollowedYou = json['TotalPeopleFollowedYou'];
   }
+  factory XInformationData.empty() {
+    return XInformationData();
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

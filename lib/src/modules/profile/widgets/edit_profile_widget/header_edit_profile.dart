@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/constants/my_network.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';

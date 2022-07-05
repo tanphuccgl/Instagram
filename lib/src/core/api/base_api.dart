@@ -18,12 +18,30 @@ class BaseApi {
         "content-type": "application/json",
         "Authorization": token,
       };
+
+  // Post
+
   static Future<XResult<String>> onPostApiNoToken(
       {required String body, required String url}) async {
     final http.Client client = http.Client();
 
     final response = await client
         .post(Uri.parse(url), headers: headers, body: body)
+        .timeout(const Duration(seconds: 10));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return XResult.success(response.body);
+    } else {
+      return XResult.error('error');
+    }
+  }
+
+  static Future<XResult<String>> onPostApiWithToken(
+      {String? body, required String url}) async {
+    final http.Client client = http.Client();
+
+    final response = await client
+        .post(Uri.parse(url), headers: headersWithToken, body: body)
         .timeout(const Duration(seconds: 10));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
