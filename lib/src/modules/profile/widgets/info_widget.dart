@@ -29,7 +29,7 @@ class InfoWidget extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(300.0),
                   child: Image.network(
-                    MyNetwork.urlAvatar,
+                    state.data.avartarUrl ?? MyNetwork.urlAvatar,
                     fit: BoxFit.cover,
                     width: 96,
                     height: 96,
@@ -48,7 +48,7 @@ class InfoWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            _nameAndBio(),
+            _nameAndBio(state.data.fullName ?? "", state.data.bio ?? ""),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -78,7 +78,7 @@ class InfoWidget extends StatelessWidget {
     );
   }
 
-  Widget _nameAndBio() {
+  Widget _nameAndBio(String name, String bio) {
     return RichText(
       textAlign: TextAlign.left,
       text: TextSpan(
@@ -87,12 +87,11 @@ class InfoWidget extends StatelessWidget {
             fontSize: 12,
             fontWeight: FontWeight.w600),
         children: [
-          const TextSpan(
-            text: "Jacob West\n",
+          TextSpan(
+            text: "$name\n",
           ),
           TextSpan(
-            text:
-                'Digital goodies designer @pixsellz \nEverything is designed.',
+            text: bio,
             style: Style.textTheme()
                 .titleSmall!
                 .copyWith(fontWeight: FontWeight.normal),

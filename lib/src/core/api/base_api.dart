@@ -18,6 +18,9 @@ class BaseApi {
         "content-type": "application/json",
         "Authorization": token,
       };
+
+  // Post
+
   static Future<XResult<String>> onPostApiNoToken(
       {required String body, required String url}) async {
     final http.Client client = http.Client();
@@ -33,12 +36,12 @@ class BaseApi {
     }
   }
 
-  static Future<XResult<String>> onPutApiWithToken(
-      {required String body, required String url}) async {
+  static Future<XResult<String>> onPostApiWithToken(
+      {String? body, required String url}) async {
     final http.Client client = http.Client();
 
     final response = await client
-        .put(Uri.parse(url), headers: headersWithToken, body: body)
+        .post(Uri.parse(url), headers: headersWithToken, body: body)
         .timeout(const Duration(seconds: 10));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
@@ -48,20 +51,7 @@ class BaseApi {
     }
   }
 
-  static Future<XResult<String>> onPutApiNoToken(
-      {required String body, required String url}) async {
-    final http.Client client = http.Client();
-
-    final response = await client
-        .put(Uri.parse(url), headers: headers, body: body)
-        .timeout(const Duration(seconds: 10));
-
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return XResult.success(response.body);
-    } else {
-      return XResult.error('error');
-    }
-  }
+// Get
 
   static Future<XResult<String>> onGetApiNoToken({required String url}) async {
     final http.Client client = http.Client();
@@ -118,6 +108,37 @@ class BaseApi {
     }
   }
 
+  // Put
+  static Future<XResult<String>> onPutApiWithToken(
+      {required String body, required String url}) async {
+    final http.Client client = http.Client();
+
+    final response = await client
+        .put(Uri.parse(url), headers: headersWithToken, body: body)
+        .timeout(const Duration(seconds: 10));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return XResult.success(response.body);
+    } else {
+      return XResult.error('error');
+    }
+  }
+
+  static Future<XResult<String>> onPutApiNoToken(
+      {required String body, required String url}) async {
+    final http.Client client = http.Client();
+
+    final response = await client
+        .put(Uri.parse(url), headers: headers, body: body)
+        .timeout(const Duration(seconds: 10));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return XResult.success(response.body);
+    } else {
+      return XResult.error('error');
+    }
+  }
+
   static Future<XResult<String>> onPutApiWithTokenOther(
       {required String body,
       required String url,
@@ -126,6 +147,23 @@ class BaseApi {
 
     final response = await client
         .put(Uri.parse(url), headers: headersWithAuthOther(token), body: body)
+        .timeout(const Duration(seconds: 10));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return XResult.success(response.body);
+    } else {
+      return XResult.error('error');
+    }
+  }
+
+  //Remove
+
+  static Future<XResult<String>> onRemoveApiWithToken(
+      {String? body, required String url}) async {
+    final http.Client client = http.Client();
+
+    final response = await client
+        .delete(Uri.parse(url), headers: headersWithToken, body: body)
         .timeout(const Duration(seconds: 10));
 
     if (response.statusCode == 200 || response.statusCode == 201) {

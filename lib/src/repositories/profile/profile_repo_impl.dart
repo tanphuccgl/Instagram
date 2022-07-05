@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:instagram/src/core/api/profile/change_information.dart';
 import 'package:instagram/src/core/api/profile/infomation_api.dart';
+import 'package:instagram/src/core/api/profile/upload_avatar.dart';
 import 'package:instagram/src/models/base_data.dart';
 import 'package:instagram/src/models/information_model.dart';
 import 'package:instagram/src/models/result.dart';
@@ -32,6 +35,26 @@ class ProfileRepositoryImpl extends ProfileRepository {
         website: website,
         username: username,
       );
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<bool>> postAvatar(File file) async {
+    try {
+      var data = await UploadAvatarRemoteDataSource().uploadAvatar(file);
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<BaseData>> deleteAvatar() async {
+    try {
+      var data = await UploadAvatarRemoteDataSource().removeAvatar();
       return XResult.success(data);
     } catch (e) {
       return XResult.error(e.toString());

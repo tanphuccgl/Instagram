@@ -33,4 +33,22 @@ class FollowBloc extends Cubit<FollowState> {
       XSnackBar.show(msg: "Error");
     }
   }
+
+  void onFollow(String idUser) async {
+    final value = await _domain.follow.postFollow(idUser);
+
+    if (value.isSuccess) {
+    } else {
+      XSnackBar.show(msg: "Error");
+    }
+  }
+
+  void onUnFollow(String idUser) async {
+    final value = await _domain.follow.removeFollow(idUser);
+
+    if (value.isSuccess) {
+    } else {
+      XSnackBar.show(msg: "Error");
+    }
+  }
 }
