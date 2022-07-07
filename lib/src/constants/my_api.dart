@@ -39,6 +39,9 @@ class ApiUrl {
   static String getSearchUserName(String username) =>
       "$baseUrl/Profile/SearchUserName?username=$username";
 
+  static String getProfileAnyUser(String idUser) =>
+      "$baseUrl/Profile/GetProfileAnyUser/$idUser";
+
   /// API Follow
 
   static const String getFollowers = "$baseUrl/Follow/TotalPeopleFollowedYou";
@@ -48,4 +51,10 @@ class ApiUrl {
   static String postFollow(String idUser) => "$baseUrl/Follow/$idUser";
 
   static String removeFollow(String idUser) => "$baseUrl/Follow/$idUser";
+
+  static String getFollowersUser(String idAccount) =>
+      "$baseUrl/Follow/TotalPeopleFollowedAccount/$idAccount";
+
+  static String getFollowingUser(String idAccount) =>
+      "$baseUrl/Follow/TotalPeopleAccountFollowed/$idAccount";
 }

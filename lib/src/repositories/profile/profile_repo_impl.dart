@@ -5,6 +5,7 @@ import 'package:instagram/src/core/api/profile/infomation_api.dart';
 import 'package:instagram/src/core/api/profile/search_user_name.dart';
 import 'package:instagram/src/core/api/profile/upload_avatar.dart';
 import 'package:instagram/src/models/base_data.dart';
+import 'package:instagram/src/models/infomation_any_user.dart';
 import 'package:instagram/src/models/information_model.dart';
 import 'package:instagram/src/models/result.dart';
 import 'package:instagram/src/models/search_user_name_model.dart';
@@ -68,6 +69,19 @@ class ProfileRepositoryImpl extends ProfileRepository {
       String username) async {
     try {
       var data = await SearchRemoteDataSource().getSearchUserName(username);
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<XResult<XInformationAnyUserData>> getInformationAnyUser(
+      String idUser) async {
+    try {
+      var data =
+          await InformationRemoteDataSource().getInformationAnyUser(idUser);
+
       return XResult.success(data);
     } catch (e) {
       return XResult.error(e.toString());

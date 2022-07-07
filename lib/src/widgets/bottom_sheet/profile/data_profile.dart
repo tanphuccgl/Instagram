@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class MenuProfile {
   final String title;
-  final IconData icon;
+  final IconData? icon;
 
-  MenuProfile({required this.title, required this.icon});
+  MenuProfile({required this.title, this.icon});
 }
 
 List<MenuProfile> menuProfile = [
