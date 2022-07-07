@@ -9,6 +9,7 @@ class SearchRemoteDataSource {
   Future<List<XSearchUserNameData>> getSearchUserName(String username) async {
     var value = await BaseApi.onGetApiWithToken(
         url: ApiUrl.getSearchUserName(username));
+
     if (value.isSuccess) {
       var success = XSearchUserName.fromJson(json.decode(value.data ?? ""));
 

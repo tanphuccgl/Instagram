@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/modules/search/logic/profile_user_bloc.dart';
 import 'package:instagram/src/modules/search/logic/search_detail_bloc.dart';
 import 'package:instagram/src/modules/search/widgets/search_card.dart';
 import 'package:instagram/src/widgets/text_field/text_field_search.dart';
@@ -26,8 +27,14 @@ class DetailSearchPage extends StatelessWidget {
                 ),
                 body: ListView.builder(
                   itemBuilder: (context, index) {
-                    return SearchCard(
-                      user: state.data[index],
+                    return GestureDetector(
+                      onTap: () => context
+                          .read<ProfileUserBloc>()
+                          .getInformationUser(
+                              context, state.data[index].id ?? ""),
+                      child: SearchCard(
+                        user: state.data[index],
+                      ),
                     );
                   },
                   itemCount: state.data.length,

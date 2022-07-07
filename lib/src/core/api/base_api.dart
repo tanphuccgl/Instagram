@@ -100,7 +100,6 @@ class BaseApi {
           headers: headersWithToken,
         )
         .timeout(const Duration(seconds: 10));
-
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
     } else {

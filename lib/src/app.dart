@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart';
 import 'package:instagram/src/config/theme/themes.dart';
 import 'package:instagram/src/modules/account/logic/account_bloc.dart';
 import 'package:instagram/src/modules/account/logic/check_account_bloc.dart';
+import 'package:instagram/src/modules/profile/logic/follow/follow_bloc.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
 
 import 'config/routes/auto_route.gr.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CheckAccountBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FollowBloc(),
         ),
       ],
       child: MaterialApp.router(
