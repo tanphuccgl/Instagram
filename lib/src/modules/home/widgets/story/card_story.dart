@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/constants/my_network.dart';
 import 'package:instagram/src/widgets/custom_button/icon_button_outline.dart';
 
 class CardStory extends StatelessWidget {
@@ -19,7 +20,7 @@ class CardStory extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage(
-                      'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80',
+                      MyNetwork.urlAvatar,
                     ),
                     fit: BoxFit.cover),
                 color: Colors.blue,

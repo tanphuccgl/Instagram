@@ -19,22 +19,22 @@ extension PageIndexExt on TabIndex {
         );
       case TabIndex.search:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabSearch),
           size: 30,
         );
       case TabIndex.videoShow:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabVideoShow),
           size: 30,
         );
       case TabIndex.favorite:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabNotification),
           size: 30,
         );
       case TabIndex.profile:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabProfile),
           size: 30,
         );
 
@@ -52,22 +52,22 @@ extension PageIndexExt on TabIndex {
         );
       case TabIndex.search:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabSearch),
           size: 30,
         );
       case TabIndex.videoShow:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabVideoShow),
           size: 30,
         );
       case TabIndex.favorite:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabNotification),
           size: 30,
         );
       case TabIndex.profile:
         return const ImageIcon(
-          AssetImage(MyIcons.icTabHome),
+          AssetImage(MyIcons.icTabProfile),
           size: 30,
         );
 
