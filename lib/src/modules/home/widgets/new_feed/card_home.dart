@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/constants/my_network.dart';
 import 'package:instagram/src/modules/home/widgets/new_feed/appbar.dart';
 import 'package:instagram/src/modules/home/widgets/new_feed/bottombar.dart';
 import 'package:instagram/src/modules/home/widgets/new_feed/media_card.dart';
@@ -26,9 +27,9 @@ class CardHome extends StatelessWidget {
             controller: controller,
             scrollDirection: Axis.horizontal,
             children: const [
-              MediaCard(),
-              MediaCard(),
-              MediaCard(),
+              MediaCard(path: MyNetwork.urlAvatar),
+              MediaCard(path: MyNetwork.urlAvatar),
+              MediaCard(path: MyNetwork.urlAvatar),
             ],
           ),
           Padding(
@@ -45,7 +46,7 @@ class CardHome extends StatelessWidget {
                   style: Style.textTheme().bodyMedium!.copyWith(
                       color: Colors.white, fontWeight: FontWeight.w600),
                 ),
-                const PositionTabView(),
+                const PositionTabView(count: 3, index1: 0),
                 const BottombarCardHome(),
               ],
             ),

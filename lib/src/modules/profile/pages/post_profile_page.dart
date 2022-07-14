@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/src/modules/home/widgets/new_feed/card_home.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/modules/post/logic/post_bloc.dart';
+
+import '../widgets/card_posts/card_post_user.dart';
 
 class PostProfilePage extends StatelessWidget {
   const PostProfilePage({Key? key}) : super(key: key);
@@ -7,19 +10,22 @@ class PostProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Posts',
-          style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          title: const Text(
+            'Posts',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-      ),
-      body: ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) => const CardHome(),
-        itemCount: 10,
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-      ),
-    );
+        body: BlocBuilder<PostBloc, PostState>(
+          builder: (context, state) {
+            return ListView.builder(
+              itemBuilder: (context, index) =>
+                  CardPostUser(data: state.listPosts[index]),
+              itemCount: state.listPosts.length,
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+            );
+          },
+        ));
   }
 }

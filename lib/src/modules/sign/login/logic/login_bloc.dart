@@ -19,7 +19,7 @@ class LoginBloc extends Cubit<LoginState> {
         .postLogin(username: state.username, password: state.password);
     if (value.isSuccess) {
       XCoordinator.showDashboard();
-      Prefs.setTokenAccount(value.data?.token ?? "");
+      Prefs.setTokenAccount(value.data?.token ?? "", value.data?.id ?? "");
     } else {
       XSnackBar.show(msg: "Error");
     }

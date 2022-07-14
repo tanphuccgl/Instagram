@@ -57,4 +57,13 @@ class ApiUrl {
 
   static String getFollowingUser(String idAccount) =>
       "$baseUrl/Follow/TotalPeopleAccountFollowed/$idAccount";
+
+  /// API Post
+
+  static String postPost = "$baseUrl/Post";
+
+  static String getPost(int type, String idAccount) =>
+      "$baseUrl/Post/?idAccount=$idAccount&type=$type";
+
+  static String removePost(String id) => "$baseUrl/$id";
 }

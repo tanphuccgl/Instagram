@@ -4,6 +4,7 @@ import 'package:instagram/src/config/routes/coordinator.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/constants/my_images.dart';
 import 'package:instagram/src/constants/my_network.dart';
 import 'package:instagram/src/modules/profile/logic/follow/follow_bloc.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
@@ -64,14 +65,16 @@ class InfoWidget extends StatelessWidget {
                 XIconButtonOutline(
                     height: 29,
                     width: 29,
-                    icon: const Icon(
-                      Icons.add_a_photo_outlined,
+                    icon: Image.asset(
+                      MyIcons.icSuggestFriend,
                       color: MyColors.colorBlack,
-                      size: 20,
+                      width: 20,
+                      fit: BoxFit.cover,
+                      height: 20,
                     ),
                     onPressed: () {}),
               ],
-            )
+            ),
           ]),
         );
       },

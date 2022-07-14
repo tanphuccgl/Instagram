@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/modules/post/logic/post_bloc.dart';
 import 'package:instagram/src/widgets/bottom_sheet/profile/data_profile.dart';
 
 class BottomSheetCreateProfile extends StatelessWidget {
@@ -16,7 +18,29 @@ class BottomSheetCreateProfile extends StatelessWidget {
                 return ListTile(
                   leading: Icon(item.icon),
                   dense: true,
-                  onTap: () {},
+                  onTap: () {
+                    context.read<PostBloc>().onChangeType(item.title);
+
+                    switch (item.title) {
+                      case "Post":
+                        context.read<PostBloc>().onCreatePost(context);
+                        break;
+                      case "Reel":
+                        break;
+                      case "Story":
+                        context.read<PostBloc>().onCreateStory(context);
+
+                        break;
+                      case "Story Highlight":
+                        break;
+                      case "Live":
+                        break;
+                      case "Guide":
+                        break;
+
+                      default:
+                    }
+                  },
                   title: Text(
                     item.title,
                   ),

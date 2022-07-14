@@ -13,8 +13,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   GetIt.I.registerLazySingleton(() => XRouter());
-  Prefs.init();
   _locator();
+  await Prefs.init();
+
   BlocOverrides.runZoned(
     () => runApp(const MyApp()),
     //  blocObserver: XBlocObserver()
