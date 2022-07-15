@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/models/post_model.dart';
 
-class BottombarCardPosts extends StatefulWidget {
-  const BottombarCardPosts({Key? key}) : super(key: key);
-
-  @override
-  State<BottombarCardPosts> createState() => _BottombarCardPostsState();
-}
-
-class _BottombarCardPostsState extends State<BottombarCardPosts> {
+class BottombarCardPosts extends StatelessWidget {
+  final XPostData data;
+  const BottombarCardPosts({Key? key, required this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +12,12 @@ class _BottombarCardPostsState extends State<BottombarCardPosts> {
       children: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.favorite_sharp),
+          icon: data.isReaction == false
+              ? const Icon(Icons.favorite_sharp)
+              : const Icon(
+                  Icons.favorite_sharp,
+                  color: Colors.red,
+                ),
         ),
         IconButton(
           onPressed: () {},
@@ -29,13 +30,13 @@ class _BottombarCardPostsState extends State<BottombarCardPosts> {
         const Spacer(),
         Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
           Text(
-            '14,023 likes',
+            '${data.likeCount} likes',
             style: Style.textTheme()
                 .bodyMedium!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
           ),
           Text(
-            '54 comments',
+            '${data.totalComment} comments',
             style: Style.textTheme().bodyMedium!.copyWith(color: Colors.white),
           ),
         ])

@@ -48,7 +48,7 @@ class _CardPostUserState extends State<CardPostUser> {
                 StatusCardPosts(description: widget.data.description ?? ""),
                 PositionTabView(
                     count: widget.data.files?.length ?? -1, index1: index),
-                const BottombarCardPosts(),
+                BottombarCardPosts(data: widget.data),
               ],
             ),
           ),

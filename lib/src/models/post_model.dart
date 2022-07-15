@@ -66,6 +66,7 @@ class XPostData {
   String? createdAt;
   String? updatedAt;
   int? likeCount;
+  int? totalComment;
   bool? isReaction;
 
   XPostData(
@@ -80,6 +81,7 @@ class XPostData {
       this.createdAt,
       this.updatedAt,
       this.likeCount,
+      this.totalComment,
       this.isReaction});
 
   XPostData.fromJson(Map<String, dynamic> json) {
@@ -101,6 +103,7 @@ class XPostData {
     createdAt = json['CreatedAt'];
     updatedAt = json['UpdatedAt'];
     likeCount = json['LikeCount'];
+    totalComment = json['TotalComment'];
     isReaction = json['IsReaction'];
   }
 
@@ -121,6 +124,7 @@ class XPostData {
     data['CreatedAt'] = createdAt;
     data['UpdatedAt'] = updatedAt;
     data['LikeCount'] = likeCount;
+    data['TotalComment'] = totalComment;
     data['IsReaction'] = isReaction;
     return data;
   }
