@@ -13,10 +13,9 @@ class BottomSheetCreateProfile extends StatelessWidget {
         const Text('Create'),
         Column(
           children: ListTile.divideTiles(
-              color: Colors.black,
+              color: const Color.fromARGB(255, 240, 227, 227),
               tiles: createProfile.map((item) {
                 return ListTile(
-                  leading: Icon(item.icon),
                   dense: true,
                   onTap: () {
                     context.read<PostBloc>().onChangeType(item.title);

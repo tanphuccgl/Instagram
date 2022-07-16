@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/config/theme/my_properties.dart';
 import 'package:instagram/src/modules/search/logic/profile_user_bloc.dart';
 import 'package:instagram/src/modules/search/logic/search_detail_bloc.dart';
 import 'package:instagram/src/modules/search/widgets/search_card.dart';
@@ -25,20 +26,26 @@ class DetailSearchPage extends StatelessWidget {
                           .read<SearchDetailBloc>()
                           .changeUsernam(value)),
                 ),
-                body: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () => context
-                          .read<ProfileUserBloc>()
-                          .getInformationUser(
-                              context, state.data[index].id ?? ""),
-                      child: SearchCard(
-                        user: state.data[index],
-                      ),
-                    );
-                  },
-                  itemCount: state.data.length,
-                  shrinkWrap: true,
+                body: Padding(
+                  padding: MyProperties.pHorScreen,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: GestureDetector(
+                          onTap: () => context
+                              .read<ProfileUserBloc>()
+                              .getInformationUser(
+                                  context, state.data[index].id ?? ""),
+                          child: SearchCard(
+                            user: state.data[index],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: state.data.length,
+                    shrinkWrap: true,
+                  ),
                 ));
           },
         ));

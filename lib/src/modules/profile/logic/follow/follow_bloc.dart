@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/src/models/follow_model.dart';
 import 'package:instagram/src/models/follow_user_model.dart';
 import 'package:instagram/src/repositories/domain.dart';
+import 'package:instagram/src/widgets/loading/base_loading.dart';
 import 'package:instagram/src/widgets/snackbar/snackbar.dart';
 
 part 'follow_state.dart';
@@ -14,6 +15,7 @@ class FollowBloc extends Cubit<FollowState> {
   final Domain _domain = Domain();
 
   void getFollowers() async {
+    BaseLoading.show();
     final value = await _domain.follow.getFollowers();
 
     if (value.isSuccess) {
@@ -23,9 +25,12 @@ class FollowBloc extends Cubit<FollowState> {
 
       XSnackBar.show(msg: "Error");
     }
+    BaseLoading.dismiss();
   }
 
   void getFollowing() async {
+    BaseLoading.show();
+
     final value = await _domain.follow.getFollowing();
 
     if (value.isSuccess) {
@@ -35,6 +40,7 @@ class FollowBloc extends Cubit<FollowState> {
 
       XSnackBar.show(msg: "Error");
     }
+    BaseLoading.dismiss();
   }
 
   void getFollowersUser(String idAccount) async {
@@ -65,6 +71,7 @@ class FollowBloc extends Cubit<FollowState> {
     final value = await _domain.follow.postFollow(idUser);
 
     if (value.isSuccess) {
+      emit(state.copyWith(isFollow: true));
     } else {
       XSnackBar.show(msg: "Error");
     }
@@ -74,6 +81,7 @@ class FollowBloc extends Cubit<FollowState> {
     final value = await _domain.follow.removeFollow(idUser);
 
     if (value.isSuccess) {
+      emit(state.copyWith(isFollow: false));
     } else {
       XSnackBar.show(msg: "Error");
     }

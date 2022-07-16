@@ -6,14 +6,14 @@ import 'package:instagram/src/core/error/exceptions.dart';
 import 'package:instagram/src/models/post_model.dart';
 
 class GetPostRemoteDataSource {
-  Future<List<XPostData>> getPost(int type, String idAccount) async {
+  Future<XPost> getPost(int type, String idAccount) async {
     var value =
         await BaseApi.onGetApiWithToken(url: ApiUrl.getPost(type, idAccount));
 
     if (value.isSuccess) {
       var success = XPost.fromJson(json.decode(value.data ?? ""));
 
-      return success.data!;
+      return success;
     } else {
       throw ServerException();
     }

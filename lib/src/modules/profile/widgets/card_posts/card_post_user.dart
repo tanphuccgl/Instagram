@@ -43,7 +43,7 @@ class _CardPostUserState extends State<CardPostUser> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const AppbarCardPosts(),
+                AppbarCardPosts(idPost: widget.data.id ?? ""),
                 const Spacer(),
                 StatusCardPosts(description: widget.data.description ?? ""),
                 PositionTabView(

@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i35;
 import 'package:flutter/material.dart' as _i36;
 
-import '../../modules/activity/pages/activity_page.dart' as _i23;
+import '../../modules/activity/pages/activity_page.dart' as _i22;
 import '../../modules/activity/router/activity_wrapper_router.dart' as _i15;
 import '../../modules/chat/chats.dart' as _i27;
 import '../../modules/chat/router/chat_wrapper_router.dart' as _i3;
@@ -35,21 +35,21 @@ import '../../modules/onboarding/pages/onboarding_page.dart' as _i7;
 import '../../modules/post/pages/new_post_page.dart' as _i34;
 import '../../modules/post/router/post_wrapper_router.dart' as _i6;
 import '../../modules/profile/pages/change_infomation_page.dart' as _i29;
+import '../../modules/profile/pages/comment_page.dart' as _i25;
 import '../../modules/profile/pages/edit_profile_page.dart' as _i28;
 import '../../modules/profile/pages/follow_page.dart' as _i26;
-import '../../modules/profile/pages/post_profile_page.dart' as _i25;
-import '../../modules/profile/pages/profile_page.dart' as _i24;
+import '../../modules/profile/pages/post_profile_page.dart' as _i24;
+import '../../modules/profile/pages/profile_page.dart' as _i23;
 import '../../modules/profile/router/edit_profile_wrapper_router.dart' as _i4;
 import '../../modules/profile/router/profile_wrapper_router.dart' as _i16;
-import '../../modules/search/pages/detail_search_page.dart' as _i19;
-import '../../modules/search/pages/follow_user_page.dart' as _i21;
-import '../../modules/search/pages/profile_user_page.dart' as _i20;
-import '../../modules/search/pages/search_page.dart' as _i18;
+import '../../modules/search/pages/detail_search_page.dart' as _i18;
+import '../../modules/search/pages/follow_user_page.dart' as _i20;
+import '../../modules/search/pages/profile_user_page.dart' as _i19;
 import '../../modules/search/router/search_wrapper_router.dart' as _i13;
 import '../../modules/sign/login/pages/login_page.dart' as _i9;
 import '../../modules/sign/router/sign_wrapper_router.dart' as _i1;
 import '../../modules/sign/signup/pages/signup_page.dart' as _i10;
-import '../../modules/video_show/pages/video_show_page.dart' as _i22;
+import '../../modules/video_show/pages/video_show_page.dart' as _i21;
 import '../../modules/video_show/router/video_show_wrapper_router.dart' as _i14;
 
 class XRouter extends _i35.RootStackRouter {
@@ -126,40 +126,42 @@ class XRouter extends _i35.RootStackRouter {
       return _i35.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i17.HomePage());
     },
-    SearchRoute.name: (routeData) {
-      return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.SearchPage());
-    },
     DetailSearchRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i19.DetailSearchPage());
+          routeData: routeData, child: const _i18.DetailSearchPage());
     },
     ProfileUserRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i20.ProfileUserPage());
+          routeData: routeData, child: const _i19.ProfileUserPage());
     },
     FollowUserRoute.name: (routeData) {
       final args = routeData.argsAs<FollowUserRouteArgs>();
       return _i35.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i21.FollowUserPage(
+          child: _i20.FollowUserPage(
               key: args.key, initialIndex: args.initialIndex));
     },
     VideoShowRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i22.VideoShowPage());
+          routeData: routeData, child: const _i21.VideoShowPage());
     },
     ActivityRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i23.ActivityPage());
+          routeData: routeData, child: const _i22.ActivityPage());
     },
     ProfileRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i24.ProfilePage());
+          routeData: routeData, child: const _i23.ProfilePage());
     },
     PostProfileRoute.name: (routeData) {
       return _i35.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i25.PostProfilePage());
+          routeData: routeData, child: const _i24.PostProfilePage());
+    },
+    CommentRoute.name: (routeData) {
+      final args = routeData.argsAs<CommentRouteArgs>();
+      return _i35.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i25.CommentPage(key: args.key, idPost: args.idPost));
     },
     FollowRoute.name: (routeData) {
       final args = routeData.argsAs<FollowRouteArgs>();
@@ -250,10 +252,8 @@ class XRouter extends _i35.RootStackRouter {
                         path: 'search',
                         parent: DashboardRoute.name,
                         children: [
-                          _i35.RouteConfig(SearchRoute.name,
-                              path: '', parent: SearchTab.name),
                           _i35.RouteConfig(DetailSearchRoute.name,
-                              path: 'detail_search', parent: SearchTab.name),
+                              path: '', parent: SearchTab.name),
                           _i35.RouteConfig(ProfileUserRoute.name,
                               path: 'profile_user', parent: SearchTab.name),
                           _i35.RouteConfig(FollowUserRoute.name,
@@ -296,6 +296,8 @@ class XRouter extends _i35.RootStackRouter {
                               path: '', parent: ProfileTab.name),
                           _i35.RouteConfig(PostProfileRoute.name,
                               path: 'post', parent: ProfileTab.name),
+                          _i35.RouteConfig(CommentRoute.name,
+                              path: 'comment', parent: ProfileTab.name),
                           _i35.RouteConfig(FollowRoute.name,
                               path: 'follow', parent: ProfileTab.name),
                           _i35.RouteConfig('*#redirect',
@@ -526,24 +528,15 @@ class HomeRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i18.SearchPage]
-class SearchRoute extends _i35.PageRouteInfo<void> {
-  const SearchRoute() : super(SearchRoute.name, path: '');
-
-  static const String name = 'SearchRoute';
-}
-
-/// generated route for
-/// [_i19.DetailSearchPage]
+/// [_i18.DetailSearchPage]
 class DetailSearchRoute extends _i35.PageRouteInfo<void> {
-  const DetailSearchRoute()
-      : super(DetailSearchRoute.name, path: 'detail_search');
+  const DetailSearchRoute() : super(DetailSearchRoute.name, path: '');
 
   static const String name = 'DetailSearchRoute';
 }
 
 /// generated route for
-/// [_i20.ProfileUserPage]
+/// [_i19.ProfileUserPage]
 class ProfileUserRoute extends _i35.PageRouteInfo<void> {
   const ProfileUserRoute() : super(ProfileUserRoute.name, path: 'profile_user');
 
@@ -551,7 +544,7 @@ class ProfileUserRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i21.FollowUserPage]
+/// [_i20.FollowUserPage]
 class FollowUserRoute extends _i35.PageRouteInfo<FollowUserRouteArgs> {
   FollowUserRoute({_i36.Key? key, required int initialIndex})
       : super(FollowUserRoute.name,
@@ -575,7 +568,7 @@ class FollowUserRouteArgs {
 }
 
 /// generated route for
-/// [_i22.VideoShowPage]
+/// [_i21.VideoShowPage]
 class VideoShowRoute extends _i35.PageRouteInfo<void> {
   const VideoShowRoute() : super(VideoShowRoute.name, path: '');
 
@@ -583,7 +576,7 @@ class VideoShowRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i23.ActivityPage]
+/// [_i22.ActivityPage]
 class ActivityRoute extends _i35.PageRouteInfo<void> {
   const ActivityRoute() : super(ActivityRoute.name, path: '');
 
@@ -591,7 +584,7 @@ class ActivityRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i24.ProfilePage]
+/// [_i23.ProfilePage]
 class ProfileRoute extends _i35.PageRouteInfo<void> {
   const ProfileRoute() : super(ProfileRoute.name, path: '');
 
@@ -599,11 +592,34 @@ class ProfileRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i25.PostProfilePage]
+/// [_i24.PostProfilePage]
 class PostProfileRoute extends _i35.PageRouteInfo<void> {
   const PostProfileRoute() : super(PostProfileRoute.name, path: 'post');
 
   static const String name = 'PostProfileRoute';
+}
+
+/// generated route for
+/// [_i25.CommentPage]
+class CommentRoute extends _i35.PageRouteInfo<CommentRouteArgs> {
+  CommentRoute({_i36.Key? key, required String idPost})
+      : super(CommentRoute.name,
+            path: 'comment', args: CommentRouteArgs(key: key, idPost: idPost));
+
+  static const String name = 'CommentRoute';
+}
+
+class CommentRouteArgs {
+  const CommentRouteArgs({this.key, required this.idPost});
+
+  final _i36.Key? key;
+
+  final String idPost;
+
+  @override
+  String toString() {
+    return 'CommentRouteArgs{key: $key, idPost: $idPost}';
+  }
 }
 
 /// generated route for

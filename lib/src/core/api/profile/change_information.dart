@@ -16,9 +16,10 @@ class ChangeInformationRemoteDataSource {
     var body = jsonEncode({
       'fullName': fullName,
       'username': username,
+      "address": "string",
       'phoneNumber': phoneNumber,
       'bio': bio,
-      'dob': "${DateTime.now}",
+      'dob': "2022-07-15T15:54:03.951Z",
       'website': website,
       'gender': true,
     });

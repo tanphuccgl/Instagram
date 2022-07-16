@@ -20,8 +20,8 @@ class PostProfilePage extends StatelessWidget {
           builder: (context, state) {
             return ListView.builder(
               itemBuilder: (context, index) =>
-                  CardPostUser(data: state.listPosts[index]),
-              itemCount: state.listPosts.length,
+                  CardPostUser(data: state.listPosts.data![index]),
+              itemCount: state.listPosts.data?.length,
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
             );

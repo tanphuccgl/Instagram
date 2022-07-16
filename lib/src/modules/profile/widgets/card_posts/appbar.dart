@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/src/config/theme/my_colors.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
+import 'package:instagram/src/widgets/bottom_sheet/bottom_sheet.dart';
+import 'package:instagram/src/widgets/bottom_sheet/profile/bottom_sheet_menu_post.dart';
 
 class AppbarCardPosts extends StatelessWidget {
-  const AppbarCardPosts({Key? key}) : super(key: key);
+  final String idPost;
+  const AppbarCardPosts({Key? key, required this.idPost}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +48,12 @@ class AppbarCardPosts extends StatelessWidget {
               ),
             ),
             IconButton(
-                onPressed: () {}, icon: const Icon(Icons.more_vert_rounded))
+                onPressed: () => XBottomSheet.show(context,
+                    backgroundColor: MyColors.colorBackground,
+                    widget: BottomSheetMenuPost(
+                      idPost: idPost,
+                    )),
+                icon: const Icon(Icons.more_vert_rounded))
           ],
         );
       },

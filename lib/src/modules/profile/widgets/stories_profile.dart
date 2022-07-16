@@ -17,7 +17,8 @@ class StoriesProfile extends StatelessWidget {
               padding: MyProperties.pHorScreen,
               child: SizedBox(
                   height: 64,
-                  child: Row(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
                     children: [
                       _addStoryWidget(),
                       const SizedBox(

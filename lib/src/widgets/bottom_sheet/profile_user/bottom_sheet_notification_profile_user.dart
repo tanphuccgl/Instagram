@@ -49,8 +49,7 @@ class BottomSheetNotificationProfileUser extends StatelessWidget {
                     );
                   })).toList(),
             ),
-            Text(
-                "Get notifications when ${state.data.idAccount?.username ?? ""} share photos or videos ")
+            const Text("Get notifications when share photos or videos ")
           ],
         );
       },
