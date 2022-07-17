@@ -51,8 +51,8 @@ class BottomSheetLiveVideos extends StatelessWidget {
                     );
                   })).toList(),
             ),
-            Text(
-                "We automatically send notification about live videos that may interest you. But you can choose to always get a notification when ${state.data.idAccount?.username ?? ""} start a live video, or to ner be notified when thay go live.")
+            const Text(
+                "We automatically send notification about live videos that may interest you. But you can choose to always get a notification when start a live video, or to ner be notified when thay go live.")
           ],
         );
       },

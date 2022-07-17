@@ -11,7 +11,6 @@ class BottomSheetMenuProfile extends StatelessWidget {
           color: Colors.transparent,
           tiles: menuProfile.map((item) {
             return ListTile(
-              leading: Icon(item.icon),
               dense: true,
               onTap: () {},
               title: Text(

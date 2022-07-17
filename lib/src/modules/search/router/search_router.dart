@@ -5,7 +5,6 @@ import 'package:instagram/src/modules/dashboard/router/dashboard_router.dart';
 import 'package:instagram/src/modules/search/pages/detail_search_page.dart';
 import 'package:instagram/src/modules/search/pages/follow_user_page.dart';
 import 'package:instagram/src/modules/search/pages/profile_user_page.dart';
-import 'package:instagram/src/modules/search/pages/search_page.dart';
 import 'package:instagram/src/modules/search/router/search_wrapper_router.dart';
 
 class SearchRouters {
@@ -20,11 +19,7 @@ class SearchCoordinator {
       page: SearchWrapperPage,
       name: 'SearchTab',
       children: [
-        AutoRoute(path: "", page: SearchPage, name: "SearchRoute"),
-        AutoRoute(
-            path: SearchRouters.detailSearch,
-            page: DetailSearchPage,
-            name: "DetailSearchRoute"),
+        AutoRoute(path: "", page: DetailSearchPage, name: "DetailSearchRoute"),
         AutoRoute(
             path: SearchRouters.profileUser,
             page: ProfileUserPage,

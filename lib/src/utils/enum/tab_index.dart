@@ -4,8 +4,8 @@ import 'package:instagram/src/constants/my_images.dart';
 enum TabIndex {
   home,
   search,
-  videoShow,
-  favorite,
+  // videoShow,
+  // favorite,
   profile,
 }
 
@@ -22,16 +22,16 @@ extension PageIndexExt on TabIndex {
           AssetImage(MyIcons.icTabSearch),
           size: 30,
         );
-      case TabIndex.videoShow:
-        return const ImageIcon(
-          AssetImage(MyIcons.icTabVideoShow),
-          size: 30,
-        );
-      case TabIndex.favorite:
-        return const ImageIcon(
-          AssetImage(MyIcons.icTabNotification),
-          size: 30,
-        );
+      // case TabIndex.videoShow:
+      //   return const ImageIcon(
+      //     AssetImage(MyIcons.icTabVideoShow),
+      //     size: 30,
+      //   );
+      // case TabIndex.favorite:
+      //   return const ImageIcon(
+      //     AssetImage(MyIcons.icTabNotification),
+      //     size: 30,
+      //   );
       case TabIndex.profile:
         return const ImageIcon(
           AssetImage(MyIcons.icTabProfile),
@@ -55,16 +55,16 @@ extension PageIndexExt on TabIndex {
           AssetImage(MyIcons.icTabSearch),
           size: 30,
         );
-      case TabIndex.videoShow:
-        return const ImageIcon(
-          AssetImage(MyIcons.icTabVideoShow),
-          size: 30,
-        );
-      case TabIndex.favorite:
-        return const ImageIcon(
-          AssetImage(MyIcons.icTabNotification),
-          size: 30,
-        );
+      // case TabIndex.videoShow:
+      //   return const ImageIcon(
+      //     AssetImage(MyIcons.icTabVideoShow),
+      //     size: 30,
+      //   );
+      // case TabIndex.favorite:
+      //   return const ImageIcon(
+      //     AssetImage(MyIcons.icTabNotification),
+      //     size: 30,
+      //   );
       case TabIndex.profile:
         return const ImageIcon(
           AssetImage(MyIcons.icTabProfile),

@@ -13,8 +13,8 @@ class DashboardPage extends StatelessWidget {
         routes: const [
           HomeTab(),
           SearchTab(),
-          VideoShowTab(),
-          ActivityTab(),
+          // VideoShowTab(),
+          // ActivityTab(),
           ProfileTab(),
         ],
         bottomNavigationBuilder: (_, tabsRouter) {

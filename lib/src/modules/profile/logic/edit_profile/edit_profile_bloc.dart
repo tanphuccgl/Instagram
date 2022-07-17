@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:instagram/src/modules/profile/logic/profile/profile_bloc.dart';
 import 'package:instagram/src/repositories/domain.dart';
 import 'package:instagram/src/widgets/snackbar/snackbar.dart';
 
@@ -20,6 +22,7 @@ class EditProfileBloc extends Cubit<EditProfileState> {
       username: state.username,
     );
     if (value.isSuccess) {
+      GetIt.I<ProfileBloc>().getInformation();
       context.router.pop();
     } else {
       XSnackBar.show(msg: "Error");

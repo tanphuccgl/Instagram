@@ -29,15 +29,11 @@ class EditProfilePage extends StatelessWidget {
       buildWhen: (previous, current) => previous.isCheck != current.isCheck,
       builder: (context, state) {
         return IconButton(
-            onPressed: state.isCheck == false
-                ? null
-                : () =>
-                    context.read<EditProfileBloc>().onCheckUsername(context),
-            icon: Icon(
+            onPressed: () =>
+                context.read<EditProfileBloc>().onCheckUsername(context),
+            icon: const Icon(
               Icons.check,
-              color: state.isCheck == false
-                  ? Colors.blue.withOpacity(0.5)
-                  : Colors.blue,
+              color: Colors.blue,
             ));
       },
     );

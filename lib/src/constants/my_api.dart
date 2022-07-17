@@ -57,4 +57,37 @@ class ApiUrl {
 
   static String getFollowingUser(String idAccount) =>
       "$baseUrl/Follow/TotalPeopleAccountFollowed/$idAccount";
+
+  /// API Post
+
+  static String postPost = "$baseUrl/Post";
+
+  static String getPost(int type, String idAccount) =>
+      "$baseUrl/Post/?idAccount=$idAccount&type=$type";
+
+  static String removePost(String id) => "$baseUrl/$id";
+
+  static String postReactionPost = "$baseUrl/Post/ReactionPost";
+
+  static String removeReactionPost = "$baseUrl/Post/UnChangeReactionPost";
+
+  static String postHandleCountReaction(String id) =>
+      "$baseUrl/Post/HandleCountReaction/$id";
+
+  static String postHandleTurnOffComment(String id) =>
+      "$baseUrl/Post/HandleTurnOffComment/$id";
+
+  static String getPostHome(int type) => "$baseUrl/Post/?type=$type";
+
+  /// API Comment
+
+  static String postComment = "$baseUrl/Comment";
+
+  static String getComment(String idPost) =>
+      "$baseUrl/Post/GetComment/{idPost}?idPost=$idPost";
+
+  static String postReactionComment = "$baseUrl/Comment/ReactionComment";
+
+  static String removeReactionComment(String idComment) =>
+      "$baseUrl/Comment/UnReactionComment/$idComment";
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_network.dart';
+import 'package:instagram/src/models/post_model.dart';
 import 'package:instagram/src/widgets/custom_button/icon_button_outline.dart';
 
 class CardStory extends StatelessWidget {
-  const CardStory({Key? key}) : super(key: key);
+  final XPostData data;
+  const CardStory({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +19,10 @@ class CardStory extends StatelessWidget {
             icon: Container(
               height: 60,
               width: 60,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage(
-                      MyNetwork.urlAvatar,
+                      data.files?.first.path ?? MyNetwork.urlAvatar,
                     ),
                     fit: BoxFit.cover),
                 color: Colors.blue,
@@ -34,7 +36,7 @@ class CardStory extends StatelessWidget {
           ),
         ),
         Text(
-          'lngszy13',
+          data.idAccount?.username ?? "",
           style: Style.textTheme().titleSmall,
         )
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/src/config/theme/my_properties.dart';
-import 'package:instagram/src/constants/my_network.dart';
+import 'package:instagram/src/modules/post/logic/post_bloc.dart';
 import 'package:instagram/src/widgets/custom_button/icon_button_outline.dart';
 
 class StoriesProfile extends StatelessWidget {
@@ -8,37 +9,48 @@ class StoriesProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: MyProperties.pHorScreen,
-        child: SizedBox(
-          height: 64,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-            children: [
-              _addStoryWidget(),
-              const SizedBox(
-                width: 11,
-              ),
-              _storyWidget(),
-              _storyWidget(),
-              _storyWidget()
-            ],
-          ),
-        ));
+    return BlocBuilder<PostBloc, PostState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Padding(
+              padding: MyProperties.pHorScreen,
+              child: SizedBox(
+                  height: 64,
+                  child: ListView(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      _addStoryWidget(),
+                      const SizedBox(
+                        width: 11,
+                      ),
+                      ListView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          children: state.listStorys
+                              .map((e) =>
+                                  _storyWidget(e.files?.first.path ?? ""))
+                              .toList()),
+                    ],
+                  ))),
+        );
+      },
+    );
   }
 
-  Widget _storyWidget() {
+  Widget _storyWidget(String path) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 11),
       child: XIconButtonOutline(
         icon: Container(
           height: 56,
           width: 56,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
                 image: NetworkImage(
-                  MyNetwork.urlAvatar,
+                  path,
                 ),
                 fit: BoxFit.cover),
             color: Colors.blue,

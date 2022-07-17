@@ -24,7 +24,7 @@ class AccountBloc extends Cubit<AccountState> {
   }
 
   void logout() {
-    Prefs.setTokenAccount("");
+    Prefs.setTokenAccount("", "");
     XCoordinator.logout();
   }
 }

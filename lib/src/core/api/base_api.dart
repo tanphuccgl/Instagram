@@ -27,7 +27,7 @@ class BaseApi {
 
     final response = await client
         .post(Uri.parse(url), headers: headers, body: body)
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -42,8 +42,7 @@ class BaseApi {
 
     final response = await client
         .post(Uri.parse(url), headers: headersWithToken, body: body)
-        .timeout(const Duration(seconds: 10));
-
+        .timeout(const Duration(seconds: 20));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
     } else {
@@ -61,7 +60,7 @@ class BaseApi {
           Uri.parse(url),
           headers: headers,
         )
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -78,7 +77,7 @@ class BaseApi {
           Uri.parse(url),
           headers: headers,
         )
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -94,12 +93,10 @@ class BaseApi {
       {required String url}) async {
     final http.Client client = http.Client();
 
-    final response = await client
-        .get(
-          Uri.parse(url),
-          headers: headersWithToken,
-        )
-        .timeout(const Duration(seconds: 10));
+    final response = await client.get(
+      Uri.parse(url),
+      headers: headersWithToken,
+    );
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
     } else {
@@ -114,7 +111,7 @@ class BaseApi {
 
     final response = await client
         .put(Uri.parse(url), headers: headersWithToken, body: body)
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -129,7 +126,7 @@ class BaseApi {
 
     final response = await client
         .put(Uri.parse(url), headers: headers, body: body)
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -146,7 +143,7 @@ class BaseApi {
 
     final response = await client
         .put(Uri.parse(url), headers: headersWithAuthOther(token), body: body)
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
@@ -163,7 +160,7 @@ class BaseApi {
 
     final response = await client
         .delete(Uri.parse(url), headers: headersWithToken, body: body)
-        .timeout(const Duration(seconds: 10));
+        .timeout(const Duration(seconds: 20));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);

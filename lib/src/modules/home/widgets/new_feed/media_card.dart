@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/src/constants/my_network.dart';
 
 class MediaCard extends StatelessWidget {
-  const MediaCard({Key? key}) : super(key: key);
+  final String path;
+  const MediaCard({Key? key, required this.path}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class MediaCard extends StatelessWidget {
       width: size.width,
       height: size.height * 7 / 10,
       child: Image.network(
-        MyNetwork.urlAvatar,
+        path,
         fit: BoxFit.fill,
       ),
     );
