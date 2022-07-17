@@ -1,10 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/style.dart';
 import 'package:instagram/src/constants/my_network.dart';
+import 'package:instagram/src/models/post_model.dart';
 
 class AppbarCardHome extends StatelessWidget {
-  const AppbarCardHome({Key? key}) : super(key: key);
+  final XPostData data;
+  const AppbarCardHome({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class AppbarCardHome extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(300.0),
                       child: Image.network(
-                        MyNetwork.urlAvatar,
+                        data.idProfie?.avartarUrl ?? MyNetwork.urlAvatar,
                         fit: BoxFit.cover,
                         width: 30,
                         height: 30,
@@ -35,19 +36,19 @@ class AppbarCardHome extends StatelessWidget {
                     ),
                   ),
                 ),
-                const TextSpan(
-                  text: "n_nhii_ ",
-                ),
                 TextSpan(
-                  text: "3d ",
-                  style: Style.textTheme().bodyMedium!.copyWith(
-                        color: Colors.grey,
-                      ),
+                  text: data.idAccount?.username ?? "",
                 ),
-                TextSpan(
-                  text: " • Follow",
-                  recognizer: TapGestureRecognizer()..onTap = () {},
-                ),
+                // TextSpan(
+                //   text: "3d ",
+                //   style: Style.textTheme().bodyMedium!.copyWith(
+                //         color: Colors.grey,
+                //       ),
+                // ),
+                // TextSpan(
+                //   text: " • Follow",
+                //   recognizer: TapGestureRecognizer()..onTap = () {},
+                // ),
               ],
             ),
           ),

@@ -18,4 +18,21 @@ class GetPostRemoteDataSource {
       throw ServerException();
     }
   }
+
+  Future<List<XPostData>> getPostHome(
+    int type,
+  ) async {
+    var value = await BaseApi.onGetApiWithToken(
+        url: ApiUrl.getPostHome(
+      type,
+    ));
+
+    if (value.isSuccess) {
+      var success = XPost.fromJson(json.decode(value.data ?? ""));
+
+      return success.data!;
+    } else {
+      throw ServerException();
+    }
+  }
 }

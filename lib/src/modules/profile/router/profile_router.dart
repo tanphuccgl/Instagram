@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/src/config/routes/auto_route.gr.dart';
 import 'package:instagram/src/modules/dashboard/router/dashboard_router.dart';
 import 'package:instagram/src/modules/profile/pages/comment_page.dart';
 import 'package:instagram/src/modules/profile/pages/follow_page.dart';
@@ -35,10 +34,11 @@ class ProfileCoordinator {
         RedirectRoute(path: '*', redirectTo: ''),
       ]);
 
-  static void showPostProfilePage(BuildContext context) =>
-      context.router.push(const PostProfileRoute());
+  static void showPostProfilePage(BuildContext context,
+          {bool isOtherUser = false}) =>
+      context.router.pushWidget(PostProfilePage(isOtherUser: isOtherUser));
   static void showCommentPage(BuildContext context, String idPost) =>
-      context.router.push(CommentRoute(idPost: idPost));
+      context.router.pushWidget(CommentPage(idPost: idPost));
 
   static void showFollow(BuildContext context, int? initialIndex) {
     context.router.pushWidget(FollowPage(

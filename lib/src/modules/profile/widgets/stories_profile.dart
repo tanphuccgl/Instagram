@@ -18,6 +18,7 @@ class StoriesProfile extends StatelessWidget {
               child: SizedBox(
                   height: 64,
                   child: ListView(
+                    shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: [
                       _addStoryWidget(),
@@ -25,6 +26,7 @@ class StoriesProfile extends StatelessWidget {
                         width: 11,
                       ),
                       ListView(
+                          physics: const NeverScrollableScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           children: state.listStorys

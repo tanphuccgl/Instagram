@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:instagram/src/config/theme/my_colors.dart';
 
 class PositionTabView extends StatelessWidget {
-  const PositionTabView({Key? key}) : super(key: key);
+  final int count;
+  final int index1;
+  const PositionTabView({Key? key, required this.count, required this.index1})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,13 @@ class PositionTabView extends StatelessWidget {
         height: 5,
         child: ListView.builder(
           shrinkWrap: true,
-          itemBuilder: (context, index) => _postionBar(
-              width: size.width / (3 + 0.5),
-              color: index == 1 ? MyColors.colorWhite : MyColors.colorGray),
-          itemCount: 3,
+          itemBuilder: (context, index) {
+            return _postionBar(
+                width: count == 1 ? size.width : size.width / (count + 0.5),
+                color:
+                    index == index1 ? MyColors.colorWhite : MyColors.colorGray);
+          },
+          itemCount: count,
           physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.horizontal,
         ),

@@ -1,41 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/src/config/theme/style.dart';
+import 'package:instagram/src/models/post_model.dart';
+import 'package:instagram/src/modules/post/logic/post_bloc.dart';
 
-class BottombarCardHome extends StatefulWidget {
-  const BottombarCardHome({Key? key}) : super(key: key);
+class BottombarCardHome extends StatelessWidget {
+  final XPostData data;
+  const BottombarCardHome({Key? key, required this.data}) : super(key: key);
 
-  @override
-  State<BottombarCardHome> createState() => _BottombarCardHomeState();
-}
-
-class _BottombarCardHomeState extends State<BottombarCardHome> {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.favorite_sharp),
+          onPressed: data.isReaction == false
+              ? () => context.read<PostBloc>().postReactionPost(data.id ?? "")
+              : () =>
+                  context.read<PostBloc>().removeReactionPost(data.id ?? ""),
+          icon: data.isReaction == false
+              ? const Icon(Icons.favorite_sharp)
+              : const Icon(
+                  Icons.favorite_sharp,
+                  color: Colors.red,
+                ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: data.turnOffComment == false
+              ? () =>
+                  context.read<PostBloc>().getComment(context, data.id ?? "")
+              : () {},
           icon: const Icon(Icons.chat_rounded),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.share),
         ),
         const Spacer(),
         Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
           Text(
-            '14,023 likes',
+            "${data.likeCount} likes",
             style: Style.textTheme()
                 .bodyMedium!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
           ),
           Text(
-            '54 comments',
+            '${data.totalComment} comments',
             style: Style.textTheme().bodyMedium!.copyWith(color: Colors.white),
           ),
         ])

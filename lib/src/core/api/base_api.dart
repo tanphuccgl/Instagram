@@ -93,12 +93,10 @@ class BaseApi {
       {required String url}) async {
     final http.Client client = http.Client();
 
-    final response = await client
-        .get(
-          Uri.parse(url),
-          headers: headersWithToken,
-        )
-        .timeout(const Duration(seconds: 20));
+    final response = await client.get(
+      Uri.parse(url),
+      headers: headersWithToken,
+    );
     if (response.statusCode == 200 || response.statusCode == 201) {
       return XResult.success(response.body);
     } else {

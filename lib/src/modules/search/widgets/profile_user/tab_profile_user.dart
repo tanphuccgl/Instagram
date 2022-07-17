@@ -42,8 +42,9 @@ class TabProfileUser extends StatelessWidget {
                   GridView.builder(
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                          onTap: () =>
-                              ProfileCoordinator.showPostProfilePage(context),
+                          onTap: () => ProfileCoordinator.showPostProfilePage(
+                              context,
+                              isOtherUser: true),
                           child: Stack(
                             children: [
                               Positioned.fill(

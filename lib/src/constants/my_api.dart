@@ -77,6 +77,8 @@ class ApiUrl {
   static String postHandleTurnOffComment(String id) =>
       "$baseUrl/Post/HandleTurnOffComment/$id";
 
+  static String getPostHome(int type) => "$baseUrl/Post/?type=$type";
+
   /// API Comment
 
   static String postComment = "$baseUrl/Comment";

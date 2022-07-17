@@ -5,7 +5,8 @@ import 'package:instagram/src/modules/post/logic/post_bloc.dart';
 import '../widgets/card_posts/card_post_user.dart';
 
 class PostProfilePage extends StatelessWidget {
-  const PostProfilePage({Key? key}) : super(key: key);
+  final bool isOtherUser;
+  const PostProfilePage({Key? key, this.isOtherUser = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,13 @@ class PostProfilePage extends StatelessWidget {
         body: BlocBuilder<PostBloc, PostState>(
           builder: (context, state) {
             return ListView.builder(
-              itemBuilder: (context, index) =>
-                  CardPostUser(data: state.listPosts.data![index]),
-              itemCount: state.listPosts.data?.length,
+              itemBuilder: (context, index) => CardPostUser(
+                  data: isOtherUser == false
+                      ? state.listPosts.data![index]
+                      : state.listPosts1.data![index]),
+              itemCount: isOtherUser == false
+                  ? state.listPosts.data?.length
+                  : state.listPosts1.data?.length,
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
             );

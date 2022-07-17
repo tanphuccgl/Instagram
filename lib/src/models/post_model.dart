@@ -65,6 +65,7 @@ class XPostData {
   bool? deleted;
   String? createdAt;
   String? updatedAt;
+  IdProfie? idProfie;
   int? likeCount;
   int? totalComment;
   bool? isReaction;
@@ -80,6 +81,7 @@ class XPostData {
       this.deleted,
       this.createdAt,
       this.updatedAt,
+      this.idProfie,
       this.likeCount,
       this.totalComment,
       this.isReaction});
@@ -102,6 +104,8 @@ class XPostData {
     deleted = json['Deleted'];
     createdAt = json['CreatedAt'];
     updatedAt = json['UpdatedAt'];
+    idProfie =
+        json['IdProfie'] != null ? IdProfie.fromJson(json['IdProfie']) : null;
     likeCount = json['LikeCount'];
     totalComment = json['TotalComment'];
     isReaction = json['IsReaction'];
@@ -123,6 +127,9 @@ class XPostData {
     data['Deleted'] = deleted;
     data['CreatedAt'] = createdAt;
     data['UpdatedAt'] = updatedAt;
+    if (idProfie != null) {
+      data['IdProfie'] = idProfie!.toJson();
+    }
     data['LikeCount'] = likeCount;
     data['TotalComment'] = totalComment;
     data['IsReaction'] = isReaction;
@@ -224,6 +231,71 @@ class Files {
     data['filename'] = filename;
     data['path'] = path;
     data['size'] = size;
+    return data;
+  }
+}
+
+class IdProfie {
+  int? iId;
+  String? idAccount;
+  String? fullName;
+  String? phoneNumber;
+  String? website;
+  bool? gender;
+  String? dob;
+  String? bio;
+  String? avartarUrl;
+  bool? deleted;
+  String? createdAt;
+  String? updatedAt;
+  int? iV;
+
+  IdProfie(
+      {this.iId,
+      this.idAccount,
+      this.fullName,
+      this.phoneNumber,
+      this.website,
+      this.gender,
+      this.dob,
+      this.bio,
+      this.avartarUrl,
+      this.deleted,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
+
+  IdProfie.fromJson(Map<String, dynamic> json) {
+    iId = json['_id'];
+    idAccount = json['IdAccount'];
+    fullName = json['FullName'];
+    phoneNumber = json['PhoneNumber'];
+    website = json['Website'];
+    gender = json['Gender'];
+    dob = json['Dob'];
+    bio = json['Bio'];
+    avartarUrl = json['AvartarUrl'];
+    deleted = json['deleted'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
+    iV = json['__v'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = iId;
+    data['IdAccount'] = idAccount;
+    data['FullName'] = fullName;
+    data['PhoneNumber'] = phoneNumber;
+    data['Website'] = website;
+    data['Gender'] = gender;
+    data['Dob'] = dob;
+    data['Bio'] = bio;
+    data['AvartarUrl'] = avartarUrl;
+    data['deleted'] = deleted;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

@@ -19,4 +19,7 @@ abstract class PostRepository {
   Future<XResult<List<XCommentData>>> getComment(String idPost);
   Future<XResult<BaseData>> postReactionComment(String idComment);
   Future<XResult<BaseData>> removeReactionComment(String idComment);
+  Future<XResult<List<XPostData>>> getPostHome(
+    int type,
+  );
 }

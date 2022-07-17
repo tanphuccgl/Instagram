@@ -119,4 +119,16 @@ class PostRepositoryImpl extends PostRepository {
       return XResult.error(e.toString());
     }
   }
+
+  @override
+  Future<XResult<List<XPostData>>> getPostHome(int type) async {
+    try {
+      var data = await GetPostRemoteDataSource().getPostHome(
+        type,
+      );
+      return XResult.success(data);
+    } catch (e) {
+      return XResult.error(e.toString());
+    }
+  }
 }
